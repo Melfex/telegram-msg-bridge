@@ -1,0 +1,29 @@
+[project]
+name = "telegram-msg-bridge"
+version = "0.1.0"
+description = "A professional Telegram bot for two-way messaging using aiogram and Python. Secure, scalable, and open-source."
+authors = [
+    {name = "Your Name",email = "you@example.com"}
+]
+license = {text = "MIT"}
+requires-python = ">=3.12,<3.15"
+dependencies = [
+    "aiogram (>=3.25.0,<4.0.0)",
+    "python-dotenv (>=1.2.1,<2.0.0)",
+    "sqlalchemy (>=2.0.46,<3.0.0)",
+    "aiosqlite (>=0.22.1,<0.23.0)",
+    "structlog (>=25.5.0,<26.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[dependency-groups]
+dev = [
+    "black (>=26.1.0,<27.0.0)",
+    "isort (>=8.0.0,<9.0.0)",
+    "mypy (>=1.19.1,<2.0.0)",
+    "pytest (>=9.0.2,<10.0.0)",
+]
