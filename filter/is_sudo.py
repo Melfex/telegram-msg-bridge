@@ -1,5 +1,11 @@
+from __future__ import annotations
+
+from typing import TYPE_CHECKING
+
 from aiogram import filters
-from aiogram.types import Message, CallbackQuery
+
+if TYPE_CHECKING:
+    from aiogram.types import Message, CallbackQuery
 
 from config import settings
 

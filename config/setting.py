@@ -1,10 +1,11 @@
 from pathlib import Path
 
+from pydantic import SecretStr
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class BotSettings(BaseSettings):
-    BOT_TOKEN: str
+    BOT_TOKEN: SecretStr
     SUDO_ID: int
 
     model_config = SettingsConfigDict(
