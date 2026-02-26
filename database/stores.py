@@ -3,8 +3,9 @@ from typing import Optional
 from sqlalchemy import select, update
 from sqlalchemy.ext.asyncio import AsyncSession
 
+from enums import StatusEnum
 from enums.locale import LocaleEnums
-from enums.status import StatusEnum
+
 from .models import Member
 
 
@@ -29,11 +30,11 @@ class MemberStore:
         self.session.add(member)
         return member
 
-    async def update_status(self, telegram_id: int, new_state: StatusEnum) -> None:
+    async def update_status(self, telegram_id: int, new_status: StatusEnum) -> None:
         await self.session.execute(
             update(Member)
             .where(Member.telegram_id == telegram_id)
-            .values(state=new_state)
+            .values(status=new_status)
         )
 
     async def update_lang(self, telegram_id: int, new_lang: str) -> None:

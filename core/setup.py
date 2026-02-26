@@ -52,6 +52,3 @@ def setup_middleware(dispatcher: Dispatcher) -> None:
     dispatcher.update.outer_middleware(DatabaseMiddleware(connector=db_instance()))
     dispatcher.update.outer_middleware(UserMiddleware())
     i18n_middleware.setup(dispatcher)
-
-
-__all__ = ["setup_router", "setup_global_filter", "setup_middleware"]
