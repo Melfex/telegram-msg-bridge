@@ -1,0 +1,1 @@
+hello = Hello, <b>{ $user }</b>!

@@ -6,6 +6,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 class BotSettings(BaseSettings):
     BOT_TOKEN: SecretStr
+    DATABASE_URL: SecretStr
     SUDO_ID: int
 
     model_config = SettingsConfigDict(

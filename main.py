@@ -1,17 +1,18 @@
 import asyncio
 
-from handler import setup_routers
-from instance import bot, dp, logger
+from config import settings
+from core import bot_instance, dispatcher_instance
+from core import polling_run
+from database import db_instance
 
 
 async def main() -> None:
-    dp.include_routers(setup_routers())
-    try:
-        logger.info("Bot started..")
-        await dp.start_polling(bot)
-    finally:
-        await bot.session.close()
-        logger.error("Bot closed..")
+    db = db_instance()
+    dp = dispatcher_instance()
+    bot = bot_instance(bot_settings=settings)
+
+    await db.init_tables()
+    await polling_run(bot=bot, dispatcher=dp)
 
 
 if __name__ == "__main__":
