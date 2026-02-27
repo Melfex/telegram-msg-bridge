@@ -8,9 +8,14 @@ from aiogram_i18n import I18nMiddleware
 from aiogram_i18n.cores import FluentRuntimeCore
 
 from database import db_instance
-from enums.locale import LocaleEnums
+from enums.locale import LocaleEnum
 from handler import setup_sudo_router, setup_user_router
-from middleware import LexiconManager, DatabaseMiddleware, UserMiddleware
+from middleware import (
+    DatabaseMiddleware,
+    UserMiddleware,
+    LexiconManager,
+    TTLtMiddleware,
+)
 
 if TYPE_CHECKING:
     from aiogram import Dispatcher
@@ -45,10 +50,11 @@ def setup_middleware(dispatcher: Dispatcher) -> None:
             path="lexicon/{locale}",
             raise_key_error=False,
         ),
-        default_locale=LocaleEnums.DEFAULT,
+        default_locale=LocaleEnum.DEFAULT,
         manager=LexiconManager(),
     )
 
     dispatcher.update.outer_middleware(DatabaseMiddleware(connector=db_instance()))
     dispatcher.update.outer_middleware(UserMiddleware())
+    dispatcher.message.middleware(TTLtMiddleware())
     i18n_middleware.setup(dispatcher)

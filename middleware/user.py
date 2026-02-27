@@ -4,7 +4,7 @@ from typing import TYPE_CHECKING, Any, Awaitable, Callable
 
 from aiogram import BaseMiddleware
 
-from enums import LocaleEnums
+from enums import LocaleEnum
 
 if TYPE_CHECKING:
     from aiogram.types import TelegramObject, User
@@ -41,7 +41,7 @@ class UserMiddleware(BaseMiddleware):
         member: Member | None = await store.by_id(tg_user.id)
 
         if member is None:
-            lang = tg_user.language_code or LocaleEnums.DEFAULT
+            lang = tg_user.language_code or LocaleEnum.DEFAULT
             member = await store.add(tg_user.id, lang)
             await scope.persist()
 

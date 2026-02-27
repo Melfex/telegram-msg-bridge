@@ -1,7 +1,7 @@
 from sqlalchemy import BigInteger, String, Enum
 from sqlalchemy.orm import Mapped, mapped_column
 
-from enums import StatusEnum, LocaleEnums
+from enums import StatusEnum, LocaleEnum
 from .base import RootEntity
 
 
@@ -17,7 +17,7 @@ class Member(RootEntity):
     preferred_lang: Mapped[str] = mapped_column(
         String(2),
         nullable=False,
-        default=LocaleEnums.DEFAULT,
+        default=LocaleEnum.DEFAULT,
         comment="preferred language of member",
     )
     status: Mapped[StatusEnum] = mapped_column(

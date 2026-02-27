@@ -4,8 +4,7 @@ from sqlalchemy import select, update
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from enums import StatusEnum
-from enums.locale import LocaleEnums
-
+from enums.locale import LocaleEnum
 from .models import Member
 
 
@@ -25,7 +24,7 @@ class MemberStore:
         )
         return result.scalar_one_or_none()
 
-    async def add(self, telegram_id: int, lang: str = LocaleEnums.DEFAULT) -> Member:
+    async def add(self, telegram_id: int, lang: str = LocaleEnum.DEFAULT) -> Member:
         member = Member(telegram_id=telegram_id, preferred_lang=lang)
         self.session.add(member)
         return member
