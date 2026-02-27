@@ -39,10 +39,10 @@ class TTLtMiddleware(BaseMiddleware):
         self.config = settings
 
     async def __call__(
-            self,
-            handler: Callable[[TelegramObject, dict[str, Any]], Awaitable[Any]],
-            event: TelegramObject,
-            data: dict[str, Any],
+        self,
+        handler: Callable[[TelegramObject, dict[str, Any]], Awaitable[Any]],
+        event: TelegramObject,
+        data: dict[str, Any],
     ) -> Any:
         user_id = event.from_user.id
 
@@ -59,7 +59,6 @@ class TTLtMiddleware(BaseMiddleware):
             self._blocked[user_id] = datetime.now() + timedelta(
                 seconds=ThrottleEnum.BLOCK_DURATION.value
             )
-            print("blocked")
             i18n: I18nContext | None = data.get("i18n")
             await event.answer(
                 i18n.get("hello", user="spam")

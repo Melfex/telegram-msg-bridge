@@ -2,9 +2,12 @@ from contextlib import asynccontextmanager
 from typing import AsyncGenerator
 
 from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
+from structlog import get_logger
 
 from config import settings
 from .scope import TransactionScope
+
+logger = get_logger(__name__)
 
 
 class DatabaseConnector:
@@ -27,6 +30,7 @@ class DatabaseConnector:
 
         async with self.engine.begin() as conn:
             await conn.run_sync(RootEntity.metadata.create_all)
+            logger.info("created all database tables")
 
     @asynccontextmanager
     async def get_session(self) -> AsyncGenerator[AsyncSession, None]:
@@ -49,4 +53,5 @@ def db_instance() -> DatabaseConnector:
     :return: Configured DatabaseConnector
     """
     db_url: str = settings.DATABASE_URL.get_secret_value()
+    logger.info("configured database")
     return DatabaseConnector(db_url)

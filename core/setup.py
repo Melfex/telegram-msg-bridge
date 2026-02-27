@@ -6,6 +6,7 @@ from aiogram import F
 from aiogram.enums import ChatType
 from aiogram_i18n import I18nMiddleware
 from aiogram_i18n.cores import FluentRuntimeCore
+from structlog import get_logger
 
 from database import db_instance
 from enums.locale import LocaleEnum
@@ -20,6 +21,8 @@ from middleware import (
 if TYPE_CHECKING:
     from aiogram import Dispatcher
 
+logger = get_logger(__name__)
+
 
 def setup_router(dispatcher: Dispatcher) -> None:
     """
@@ -30,6 +33,7 @@ def setup_router(dispatcher: Dispatcher) -> None:
 
     dispatcher.include_router(setup_user_router())
     dispatcher.include_router(setup_sudo_router())
+    logger.info("setup routers complete")
 
 
 def setup_global_filter(dispatcher: Dispatcher) -> None:
@@ -42,6 +46,7 @@ def setup_global_filter(dispatcher: Dispatcher) -> None:
 
     # filter update only for PRIVATE chat type
     dispatcher.update.filter(F.chat.type == ChatType.PRIVATE)
+    logger.info("setup global filter/filters complete")
 
 
 def setup_middleware(dispatcher: Dispatcher) -> None:
@@ -58,3 +63,4 @@ def setup_middleware(dispatcher: Dispatcher) -> None:
     dispatcher.update.outer_middleware(UserMiddleware())
     dispatcher.message.middleware(TTLtMiddleware())
     i18n_middleware.setup(dispatcher)
+    logger.info("setup middleware complete")

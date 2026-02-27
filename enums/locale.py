@@ -1,7 +1,7 @@
-from enum import auto, Enum
+from enum import auto, StrEnum
 
 
-class LocaleEnum(Enum):
+class LocaleEnum(StrEnum):
     FA = auto()
     EN = auto()
     ES = auto()

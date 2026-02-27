@@ -17,9 +17,9 @@ class LexiconManager(BaseManager):
     default_locale = LocaleEnum.DEFAULT
 
     async def get_locale(
-            self,
-            event_from_user: User | None = None,
-            **kwargs: Any,
+        self,
+        event_from_user: User | None = None,
+        **kwargs: Any,
     ) -> str:
         """
         retrieve the user's current locale
@@ -42,10 +42,10 @@ class LexiconManager(BaseManager):
         return self.default_locale
 
     async def set_locale(
-            self,
-            locale: str,
-            event_from_user: User | None = None,
-            **kwargs: Any,
+        self,
+        locale: str,
+        event_from_user: User | None = None,
+        **kwargs: Any,
     ) -> None:
         """
         change the user's locale.

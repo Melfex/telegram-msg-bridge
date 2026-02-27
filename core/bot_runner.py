@@ -2,8 +2,12 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
+from structlog import get_logger
+
 if TYPE_CHECKING:
     from aiogram import Bot, Dispatcher
+
+logger = get_logger(__name__)
 
 
 async def startup_polling(bot: Bot):
@@ -39,6 +43,7 @@ async def polling_run(bot: Bot, dispatcher: Dispatcher):
 
     :return: None
     """
+    logger.info("starting polling mode..")
     dispatcher.startup.register(startup_polling)
     dispatcher.shutdown.register(shutdown_polling)
     await dispatcher.start_polling(bot)
