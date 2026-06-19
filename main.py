@@ -24,7 +24,7 @@ async def main() -> None:
     dp = dispatcher_instance()
     bot = bot_instance(bot_settings=settings)
     await db.init_tables()
-    logger.info(f"db initialized")
+    logger.info("Database tables initialized")
     await polling_run(bot=bot, dispatcher=dp)
 
 
