@@ -1,11 +1,15 @@
-from .locale import LocaleEnum
+from .locale import Locale
 from .logging import LogLevel
-from .status import StatusEnum
-from .throttle import ThrottleEnum
+from .status import Status
+from .throttle import Throttle
+from .message_effect import MessageEffect
+from .sticker_id import StickerID
 
 __all__ = [
-    "StatusEnum",
-    "LocaleEnum",
-    "ThrottleEnum",
+    "Status",
+    "Locale",
+    "Throttle",
     "LogLevel",
+    "MessageEffect",
+    "StickerID",
 ]

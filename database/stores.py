@@ -3,8 +3,8 @@ from typing import Optional
 from sqlalchemy import select, update
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from enums import StatusEnum
-from enums.locale import LocaleEnum
+from enums import Status
+from enums.locale import Locale
 from .models import Member
 
 
@@ -24,12 +24,12 @@ class MemberStore:
         )
         return result.scalar_one_or_none()
 
-    async def add(self, telegram_id: int, lang: str = LocaleEnum.DEFAULT) -> Member:
+    async def add(self, telegram_id: int, lang: str = Locale.DEFAULT) -> Member:
         member = Member(telegram_id=telegram_id, preferred_lang=lang)
         self.session.add(member)
         return member
 
-    async def update_status(self, telegram_id: int, new_status: StatusEnum) -> None:
+    async def update_status(self, telegram_id: int, new_status: Status) -> None:
         await self.session.execute(
             update(Member)
             .where(Member.telegram_id == telegram_id)

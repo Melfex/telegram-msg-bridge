@@ -9,7 +9,7 @@ from aiogram_i18n.cores import FluentRuntimeCore
 from structlog import get_logger
 
 from database import db_instance
-from enums.locale import LocaleEnum
+from enums.locale import Locale
 from handler import setup_sudo_router, setup_user_router
 from middleware import (
     DatabaseMiddleware,
@@ -55,7 +55,7 @@ def setup_middleware(dispatcher: Dispatcher) -> None:
             path="lexicon/{locale}",
             raise_key_error=False,
         ),
-        default_locale=LocaleEnum.DEFAULT,
+        default_locale=Locale.DEFAULT,
         manager=LexiconManager(),
     )
 

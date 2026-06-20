@@ -4,7 +4,7 @@ from typing import TYPE_CHECKING, Any
 
 from aiogram_i18n.managers import BaseManager
 
-from enums.locale import LocaleEnum
+from enums.locale import Locale
 
 if TYPE_CHECKING:
     from aiogram.types import User
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
 class LexiconManager(BaseManager):
     """custom locale manager for aiogram_i18n"""
 
-    default_locale = LocaleEnum.DEFAULT
+    default_locale = Locale.DEFAULT
 
     async def get_locale(
         self,
@@ -59,6 +59,5 @@ class LexiconManager(BaseManager):
         :type kwargs: Any
         :return: None
         """
-        member = kwargs.get("member")
-        if member:
+        if (member := kwargs.get("member")):
             member.preferred_lang = locale

@@ -1,0 +1,10 @@
+from enum import StrEnum
+
+
+class StickerID(StrEnum):
+    """Telegram sticker File IDs for `sticker` parameter"""
+    HI_DUCK = "CAACAgIAAxkBAAEq8NtqNZCIYhFCyBzadQq4bfL79278zAACRisAAkc_eElkhCtjU_D2fDwE"
+    HELP_DUCK = "CAACAgIAAxkBAAEq8O1qNZE_Oyqj-szt-YuSaEjMi3XKyAACJxUAAjeKoEnG8YfNe2NL3jwE"
+    SOCIAL_DUCK = "CAACAgIAAxkBAAEq8PlqNZHL6i8cSeJ5219We_tiEK3BkQACbiYAAjNieUlKoaOTnpoTVTwE"
+    MESSAGE_DUCK = "CAACAgIAAxkBAAEq8QRqNZIV-JLMyXe4Z6U_wiQuUomPxAACSAIAAladvQoc9XL43CkU0DwE"
+    ANONYMOUS_MESSAGE_DUCK = "CAACAgIAAxkBAAEq8QZqNZIWQSp_wYQT0Js580LsaErgcgACSQIAAladvQoqlwydCFMhDjwE"

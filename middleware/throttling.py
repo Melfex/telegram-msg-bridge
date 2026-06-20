@@ -8,7 +8,7 @@ from aiogram.types import Message
 from cachebox import TTLCache
 
 from config import settings
-from enums import ThrottleEnum
+from enums import Throttle
 
 if TYPE_CHECKING:
     from aiogram.types import TelegramObject
@@ -31,10 +31,10 @@ class TTLtMiddleware(BaseMiddleware):
 
     def __init__(self) -> None:
         self._counter: Final[TTLCache[int, int]] = TTLCache(
-            maxsize=1000, ttl=ThrottleEnum.WINDOW
+            maxsize=1000, ttl=Throttle.WINDOW
         )
         self._blocked: Final[TTLCache[int, datetime]] = TTLCache(
-            maxsize=1000, ttl=ThrottleEnum.BLOCK_DURATION
+            maxsize=1000, ttl=Throttle.BLOCK_DURATION
         )
         self.config = settings
 
@@ -55,9 +55,9 @@ class TTLtMiddleware(BaseMiddleware):
         count = self._counter.get(user_id, 0)
         self._counter[user_id] = count + 1
 
-        if count + 1 >= ThrottleEnum.MAX:
+        if count + 1 >= Throttle.MAX:
             self._blocked[user_id] = datetime.now() + timedelta(
-                seconds=ThrottleEnum.BLOCK_DURATION.value
+                seconds=Throttle.BLOCK_DURATION.value
             )
             i18n: I18nContext | None = data.get("i18n")
             await event.answer(
