@@ -13,4 +13,5 @@ router: Final[Router] = Router(name=__name__)
 
 @router.message(CommandStart())
 async def start_command(message: Message):
+    """Handle /start for the sudo user"""
     await message.answer(text="hello sudo!")

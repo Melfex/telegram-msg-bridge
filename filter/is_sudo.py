@@ -11,6 +11,8 @@ from config import settings
 
 
 class IsSudo(filters.BaseFilter):
+    """Allow updates from the configured sudo user only"""
+
     async def __call__(self, update: Message | CallbackQuery):
         user_id = update.from_user.id
         return user_id == settings.SUDO_ID

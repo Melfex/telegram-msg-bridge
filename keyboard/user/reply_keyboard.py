@@ -4,10 +4,11 @@ from aiogram_i18n import I18nContext
 
 
 class UserReplyKeyboard:
+    """Reply keyboard layouts for regular users"""
+
     @staticmethod
     def main_menu(i18n: I18nContext) -> ReplyKeyboardMarkup:
-        """
-        """
+        """Return the localized main menu keyboard"""
         btn = ReplyKeyboardBuilder()
 
         btn.button(text=i18n.get("message-btn"))

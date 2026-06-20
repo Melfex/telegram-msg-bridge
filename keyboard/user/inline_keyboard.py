@@ -3,8 +3,11 @@ from aiogram.utils.keyboard import InlineKeyboardBuilder
 
 
 class UserInlineKeyboard:
+    """Inline keyboard layouts for regular users"""
+
     @staticmethod
     def social_links() -> InlineKeyboardMarkup:
+        """Return social profile link buttons"""
         btn = InlineKeyboardBuilder()
 
         btn.button(

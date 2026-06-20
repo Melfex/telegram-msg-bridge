@@ -10,7 +10,7 @@ if TYPE_CHECKING:
 
 
 class DatabaseMiddleware(BaseMiddleware):
-    """middleware that injects a database transaction scope into the handler data"""
+    """Inject a database transaction scope into handler data"""
 
     def __init__(self, connector: DatabaseConnector):
         self.connector = connector
@@ -21,6 +21,7 @@ class DatabaseMiddleware(BaseMiddleware):
             event: TelegramObject,
             data: Dict[str, Any],
     ) -> Any:
+        """Open a transaction scope for the duration of the handler"""
         async with self.connector.create_scope() as scope:
             data["scope"] = scope
             return await handler(event, data)

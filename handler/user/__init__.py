@@ -4,6 +4,7 @@ from .commands import command_router
 
 
 def setup_user_router() -> Router:
+    """Build the public user router subtree"""
     router = Router()
 
     router.include_router(command_router)

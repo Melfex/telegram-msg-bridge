@@ -12,6 +12,7 @@ logger = get_logger(__name__)
 
 
 async def main() -> None:
+    """Initialize services and start bot polling"""
     setup_logging(
         log_level="INFO",
         json_format=False,
