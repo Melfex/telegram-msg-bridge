@@ -143,6 +143,9 @@ celerybeat.pid
 .env
 .envrc
 .venv
+
+# Instance config (copy from *.example.json and fill in your own values)
+config/social_links.json
 env/
 venv/
 ENV/
