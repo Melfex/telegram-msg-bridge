@@ -8,7 +8,6 @@ from aiogram_i18n import I18nMiddleware
 from aiogram_i18n.cores import FluentRuntimeCore
 from structlog import get_logger
 
-from database import db_instance
 from enums.locale import Locale
 from handler import setup_sudo_router, setup_user_router
 from middleware import (
@@ -20,6 +19,7 @@ from middleware import (
 
 if TYPE_CHECKING:
     from aiogram import Dispatcher
+    from database import DatabaseConnector
 
 logger = get_logger(__name__)
 
@@ -49,7 +49,7 @@ def setup_global_filter(dispatcher: Dispatcher) -> None:
     logger.info("setup global filter/filters complete")
 
 
-def setup_middleware(dispatcher: Dispatcher) -> None:
+def setup_middleware(dispatcher: Dispatcher, db_connector: DatabaseConnector) -> None:
     i18n_middleware = dispatcher["i18n_middleware"] = I18nMiddleware(
         core=FluentRuntimeCore(
             path="lexicon/{locale}",
@@ -59,7 +59,7 @@ def setup_middleware(dispatcher: Dispatcher) -> None:
         manager=LexiconManager(),
     )
 
-    dispatcher.update.outer_middleware(DatabaseMiddleware(connector=db_instance()))
+    dispatcher.update.outer_middleware(DatabaseMiddleware(connector=db_connector))
     dispatcher.update.outer_middleware(UserMiddleware())
     dispatcher.message.middleware(TTLtMiddleware())
     i18n_middleware.setup(dispatcher)

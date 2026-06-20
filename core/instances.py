@@ -11,6 +11,7 @@ from .setup import setup_router, setup_global_filter, setup_middleware
 
 if TYPE_CHECKING:
     from config.setting import BotSettings
+    from database import DatabaseConnector
 
 
 def bot_instance(bot_settings: BotSettings) -> Bot:
@@ -29,10 +30,11 @@ def bot_instance(bot_settings: BotSettings) -> Bot:
     return bot
 
 
-def dispatcher_instance() -> Dispatcher:
+def dispatcher_instance(db_connector: DatabaseConnector) -> Dispatcher:
     """
     create and configure root router
 
+    :param db_connector: shared database connector injected into middlewares
     :return: Dispatcher
     """
 
@@ -42,6 +44,6 @@ def dispatcher_instance() -> Dispatcher:
     )
     setup_router(dispatcher)
     setup_global_filter(dispatcher)
-    setup_middleware(dispatcher)
+    setup_middleware(dispatcher, db_connector)
 
     return dispatcher

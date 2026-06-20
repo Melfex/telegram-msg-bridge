@@ -10,6 +10,19 @@ if TYPE_CHECKING:
     from aiogram.types import TelegramObject, User
     from database import Member, TransactionScope
 
+_SUPPORTED_LOCALES: frozenset[str] = frozenset(Locale)
+
+
+def _normalize_locale(language_code: str | None) -> str:
+    """
+    map a Telegram ``language_code`` (e.g. ``en``, ``en-US``, ``pt-br``) to a
+    supported two-letter locale, falling back to the default locale.
+    """
+    if not language_code:
+        return Locale.DEFAULT
+    primary = language_code.split("-", 1)[0].lower()
+    return primary if primary in _SUPPORTED_LOCALES else Locale.DEFAULT
+
 
 class UserMiddleware(BaseMiddleware):
     """middleware that ensures a `Member` object exists in the handler data"""
@@ -41,7 +54,7 @@ class UserMiddleware(BaseMiddleware):
         member: Member | None = await store.by_id(tg_user.id)
 
         if member is None:
-            lang = tg_user.language_code or Locale.DEFAULT
+            lang = _normalize_locale(tg_user.language_code)
             member = await store.add(tg_user.id, lang)
             await scope.persist()
 

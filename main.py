@@ -21,7 +21,7 @@ async def main() -> None:
         environment="development",
     )
     db = db_instance()
-    dp = dispatcher_instance()
+    dp = dispatcher_instance(db_connector=db)
     bot = bot_instance(bot_settings=settings)
     await db.init_tables()
     logger.info("Database tables initialized")
