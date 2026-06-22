@@ -1,137 +1,281 @@
-# Telegram Message Bridge
+<div align="center">
 
-![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=flat&logo=python&logoColor=white)
-![Aiogram](https://img.shields.io/badge/Aiogram-3.x-0088cc?style=flat&logo=telegram&logoColor=white)
-![License](https://img.shields.io/github/license/Melfex/telegram-msg-bridge?style=flat)
-![Status](https://img.shields.io/badge/Status-In%20Development-yellow?style=flat)
+# 🌉 Telegram Message Bridge
 
-**Telegram Message Bridge** is a personal Telegram bot that serves as a secure and configurable messaging gateway between users and the bot owner.
+### A modern, modular Telegram bot that bridges your audience to you — **directly** or **anonymously**.
 
-Users can send messages to the owner in two modes:
+<br/>
 
-- **Direct mode** — Sender's identity (username, display name, and/or user ID) is visible to the owner
-- **Anonymous mode** — Sender's identity is completely hidden, providing full privacy
+[![Python](https://img.shields.io/badge/Python-3.12%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![Aiogram](https://img.shields.io/badge/Aiogram-3.25-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://docs.aiogram.dev/)
+[![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-2.0-D71F00?style=for-the-badge&logo=sqlalchemy&logoColor=white)](https://www.sqlalchemy.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-22c55e?style=for-the-badge)](LICENSE)
 
-This bot acts as a personal communication bridge, enabling controlled, private, and convenient interaction with followers, friends, contacts, or anyone who wishes to reach out.
+![Status](https://img.shields.io/badge/Status-In%20Development%20%26%20Testing-f59e0b?style=flat-square)
+![i18n](https://img.shields.io/badge/i18n-21%20languages-8b5cf6?style=flat-square)
+![Code style](https://img.shields.io/badge/architecture-modular-0ea5e9?style=flat-square)
+![PRs](https://img.shields.io/badge/PRs-welcome-ec4899?style=flat-square)
 
-## Table of Contents
+<br/>
 
-- 🚧 [Project Status](#project-status)
-- 📋 [Planned Features](#planned-features)
-- 📂 [Project Structure](#project-structure)
-- 🛠  [Prerequisites](#prerequisites)
-- ⚙️ [Installation & Local Development Setup](#installation--local-development-setup)
-- 🤝 [Contributing](#contributing)
-- 📄 [License](#license)
-- 📧 [Contact](#contact)
+**🌍 Read this in other languages**
 
-## Project Status
+**English** ·
+[العربية](docs/README.ar.md) ·
+[Español](docs/README.es.md) ·
+[Русский](docs/README.ru.md) ·
+[中文](docs/README.zh.md)
 
-🚧 **Actively under development** 🚧
-
-The project is in its early stages. The modular architecture and foundational structure are complete, while the core messaging logic, mode selection, owner interface, and additional features are currently being implemented.
-
-## Planned Features
-
-- [ ] Receiving various message types from users (text, photos, voice, videos, documents, etc.)
-- [ ] Two distinct message submission modes:
-  - **Direct** — Full sender identity revealed to the owner
-  - **Anonymous** — Sender identity fully concealed
-- [ ] Owner dashboard: view incoming messages, reply to users, block/unblock, manage settings
-- [ ] Multilingual support using lexicon-based internationalization
-- [ ] Advanced message filtering (spam protection, banned words/phrases, rate limiting)
-- [ ] Comprehensive logging and security-oriented middleware
-- [ ] Asynchronous database layer (PostgreSQL recommended; SQLite for local development)
-- [ ] Easy deployment using Docker + docker-compose
-
-## Project Structure
-
-Clean, modular, and layered architecture optimized for maintainability and scalability:
-
-```text
-telegram-msg-bridge/
-├── config/          # Configuration (Pydantic models, loaders)
-├── database/        # ORM models, async sessions, Alembic migrations
-├── filter/          # Custom aiogram filters
-├── handler/         # Routers, message/callback/command handlers
-├── keyboard/        # Inline & reply keyboards
-├── lexicon/         # Localized strings and i18n support
-├── middleware/      # Throttling, logging, authentication, etc.
-├── state/           # FSM states
-├── tests/           # pytest-based unit & integration tests
-├── util/            # Helpers, validators, logging setup
-├── .env.example
-├── instance.py      # Bot & Dispatcher factory / instantiation
-├── main.py          # Application entry point
-└── pyproject.toml   # Dependency & build management with Poetry
-```
-
-
-## Prerequisites
-
-- **Python** ≥ 3.10 (recommended: 3.11 or 3.12 for better asyncio performance and compatibility with aiogram 3.25+)
-- **[Poetry](https://python-poetry.org/)** ≥ 1.5 – for dependency management and virtual environments
-- **Git** – required to clone the repository
-- **Telegram Bot Token** – obtain from [@BotFather](https://t.me/botfather)
-- **Optional (for advanced development or future features)**:
-  - PostgreSQL ≥ 13 – if planning to use async database support (e.g., SQLAlchemy + asyncpg)
-  - Docker & docker-compose – for containerized deployment (planned in future updates)
-
-All core dependencies (aiogram ≥3.25, structlog, rich, pydantic-settings, python-dotenv, etc.) are automatically installed via `poetry install`.
-
-## Installation & Local Development Setup
-
-1. Clone the repository
-
-   ```bash
-   git clone https://github.com/Melfex/telegram-msg-bridge.git
-   cd telegram-msg-bridge
-    ```
-2. Install dependencies
-
-   ```bash
-   poetry install
-   ```
-3. Copy and configure environment variables
-
-   ```bash
-   cp .env.example .env
-   ```
-   Edit .env and add at least:
-   ```
-   BOT_TOKEN=your_bot_token_from_BotFather
-   # OWNER_ID=your_telegram_user_id_here   # Recommended for owner-only access
-   ```
-4. Run the bot
-
-   ```bash
-   poetry run python main.py
-   ```
-
-## Contributing
-
-This is an open-source project under active development.
-
-Contributions are welcome in the following forms:
-
-- Suggesting features or improvements (open an Issue)
-- Reporting bugs
-- Submitting pull requests
-
-For significant changes, please open an issue first to discuss the proposed direction.
-
-## License
-
-Distributed under the MIT License. See [`LICENSE`](LICENSE) for more information.
-
-## Contact
-
-- Maintainer: [@Melfex](https://t.me/Melfex) (Telegram)
-
-Bot username and live link will be shared once a stable version is released.
+</div>
 
 ---
 
-Built with [aiogram 3](https://docs.aiogram.dev/en/latest/) • Modern Python practices
-Contributions and stars are very welcome! ⭐
+> [!WARNING]
+> **🚧 This project is actively under development and testing.**
+> Core flows are implemented and usable, but APIs, structure, and UX may change before a stable `v1.0` release. Use it for experimentation and feedback.
 
+---
+
+## 📖 Table of Contents
+
+- [✨ Overview](#-overview)
+- [🎯 Features](#-features)
+- [🌍 Internationalization](#-internationalization)
+- [🧭 How It Works](#-how-it-works)
+- [🧱 Tech Stack](#-tech-stack)
+- [🗂️ Project Structure](#️-project-structure)
+- [🚀 Getting Started](#-getting-started)
+- [⚙️ Configuration](#️-configuration)
+- [🧠 Design Notes](#-design-notes)
+- [🗺️ Roadmap](#️-roadmap)
+- [🤝 Contributing](#-contributing)
+- [📄 License](#-license)
+
+---
+
+## ✨ Overview
+
+**Telegram Message Bridge** is a personal communication gateway. It lets anyone reach the bot owner through a clean, guided flow, while giving the owner full control over the conversation.
+
+Users choose between two modes:
+
+| Mode | Sender identity | Use case |
+| :--- | :--- | :--- |
+| 💌 **Direct** | Visible to the owner (name, username, ID) | Friends, contacts, accountable messages |
+| 🥷 **Anonymous** | Fully hidden from the owner | Honest feedback, private questions |
+
+The owner receives every message in a rich **inbox card** with one-tap actions: reply, block/unblock, and emoji reactions.
+
+---
+
+## 🎯 Features
+
+- 📨 **User → Owner relay** for text **and all media types** (photo, video, voice, documents, …)
+- 🎭 **Two delivery modes** — direct & anonymous — powered by FSM flows
+- 🗃️ **Owner inbox actions** — reply, block / unblock, emoji reactions
+- 🛡️ **Global block enforcement** — blocked users are dropped at the middleware layer
+- 🚦 **Anti-spam throttling** — TTL-based rate limiting with temporary blocking
+- 🌍 **Full i18n** — 21 languages via Fluent, with the user's locale **persisted in DB**
+- 🟢 **Inline language picker** — the active language is highlighted as a green button
+- 🔗 **Config-driven social links** — managed from a validated JSON file
+- 🧾 **Structured logging** — clean, rich, production-friendly logs
+- ⚡ **Fully async** — `aiogram 3` + async SQLAlchemy + aiosqlite
+
+---
+
+## 🌍 Internationalization
+
+The bot ships with **21 fully translated locales**:
+
+<div align="center">
+
+🇬🇧 English · 🇷🇺 Русский · 🇺🇦 Українська · 🇪🇸 Español · 🇺🇿 Oʻzbek · 🇧🇷 Português · 🇩🇪 Deutsch
+🇮🇹 Italiano · 🇫🇷 Français · 🇹🇷 Türkçe · 🇮🇱 עברית · 🇸🇦 العربية · 🇮🇷 فارسی · 🇨🇳 中文
+🇮🇩 Bahasa Indonesia · 🇸🇪 Svenska · 🇲🇾 Bahasa Melayu · 🇳🇱 Nederlands · 🇮🇳 हिन्दी · 🇰🇷 한국어 · 🇻🇳 Tiếng Việt
+
+</div>
+
+Locale resolution is automatic (from Telegram), overridable via the inline picker, and stored per-user in `members.preferred_lang`. RTL languages (Persian, Arabic, Hebrew) are fully supported.
+
+---
+
+## 🧭 How It Works
+
+```mermaid
+flowchart LR
+    U([👤 User]) -->|/start| LP[🌍 Language Picker]
+    U -->|💌 Direct / 🥷 Anonymous| FSM[[Send-Message FSM]]
+
+    FSM --> MW{{"Middlewares<br/>DB · User · Throttle · i18n"}}
+    MW -->|relay| INBOX[📨 Owner Inbox Card]
+
+    INBOX -->|💬 Reply| U
+    INBOX -->|⛔ Block / ✅ Unblock| MW
+    INBOX -->|😀 React| U
+
+    classDef accent fill:#2CA5E0,stroke:#1b6fa3,color:#fff;
+    class INBOX,FSM accent;
+```
+
+1. The user opens the bot and (optionally) picks a language.
+2. They choose **Direct** or **Anonymous** and send a single message of any type.
+3. Middlewares hydrate the user, enforce blocks, and throttle spam.
+4. The owner gets an **inbox card** and can reply, block/unblock, or react.
+5. Replies are delivered back to the user in **their own language**.
+
+---
+
+## 🧱 Tech Stack
+
+| Layer | Technology |
+| :--- | :--- |
+| **Bot framework** | [`aiogram 3.25`](https://docs.aiogram.dev/) |
+| **Internationalization** | [`aiogram-i18n`](https://github.com/aiogram/i18n) + Fluent Runtime |
+| **Database / ORM** | [SQLAlchemy 2.x](https://www.sqlalchemy.org/) (async) + `aiosqlite` |
+| **Configuration** | [Pydantic Settings](https://docs.pydantic.dev/latest/concepts/pydantic_settings/) |
+| **Logging** | [`structlog`](https://www.structlog.org/) + [`rich`](https://github.com/Textualize/rich) |
+| **Caching / throttling** | [`cachebox`](https://github.com/awolverp/cachebox) (TTL cache) |
+| **Dependency management** | [Poetry](https://python-poetry.org/) |
+
+---
+
+## 🗂️ Project Structure
+
+```text
+telegram-msg-bridge/
+├── config/                 # Pydantic settings + social-links loader
+├── core/                   # Bot/Dispatcher factories, setup & polling runner
+├── database/               # Connector, UoW scope, ORM models, stores
+├── enums/                  # Locale, actions, effects, modes, reactions
+├── filter/                 # Custom aiogram filters (e.g. sudo access)
+├── handler/
+│   ├── user/               # command · button · state · callback · helper
+│   └── sudo/               # command · state · callback · helper
+├── keyboard/
+│   ├── user/               # inline/reply keyboards + callback factories
+│   └── sudo/               # owner keyboards + callback factories
+├── lexicon/                # Fluent translation bundles (21 locales)
+├── middleware/             # DB scope · user hydration · i18n · throttling
+├── state/                  # FSM state groups (user / sudo)
+├── util/                   # Logging setup + bot command registration
+├── .env.example
+├── main.py                 # Application entry point
+└── pyproject.toml          # Poetry project & dependencies
+```
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- **Python** `>=3.12,<3.15`
+- **[Poetry](https://python-poetry.org/)** for dependency management
+- A **Telegram Bot Token** from [@BotFather](https://t.me/botfather)
+- Your **Telegram user ID** from [@userinfobot](https://t.me/userinfobot)
+
+### Installation
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/Melfex/telegram-msg-bridge.git
+cd telegram-msg-bridge
+
+# 2. Install dependencies
+poetry install
+
+# 3. Configure environment & social links (see below)
+cp .env.example .env
+cp config/social_links.example.json config/social_links.json
+
+# 4. Run the bot
+poetry run python main.py
+```
+
+On startup the app initializes logging, creates database tables, registers bot commands, and starts long-polling.
+
+---
+
+## ⚙️ Configuration
+
+### Environment variables (`.env`)
+
+| Variable | Required | Description |
+| :--- | :---: | :--- |
+| `BOT_TOKEN` | ✅ | Bot API token from [@BotFather](https://t.me/botfather) |
+| `SUDO_ID` | ✅ | Telegram user ID of the owner (sudo) |
+| `DATABASE_URL` | ✅ | Async DB URL (default: `sqlite+aiosqlite:///database.db`) |
+
+```env
+BOT_TOKEN=123456:ABC-DEF...
+SUDO_ID=987654321
+DATABASE_URL=sqlite+aiosqlite:///database.db
+```
+
+### Social links (`config/social_links.json`)
+
+```json
+{
+  "links": [
+    { "label": "GitHub",    "url": "https://github.com/your-handle" },
+    { "label": "Instagram", "url": "https://instagram.com/your-handle" }
+  ]
+}
+```
+
+> [!NOTE]
+> `config/social_links.json` is **gitignored** on purpose — copy it from `config/social_links.example.json` and fill in your own links.
+
+---
+
+## 🧠 Design Notes
+
+- **Stateless routing for owner actions** — reply/block/react carry their context in compact callback payloads instead of per-message database rows, keeping the DB lean.
+- **Locale-aware delivery** — owner replies are rendered in the *recipient's* language, not the owner's.
+- **Privacy by design** — anonymous messages never persist sender identity.
+- **Single DB connector** — injected once and shared across middlewares.
+
+---
+
+## 🗺️ Roadmap
+
+- [x] Direct & anonymous messaging flows
+- [x] Owner inbox actions (reply / block / react)
+- [x] 21-language i18n + inline language picker
+- [x] Config-driven social links
+- [ ] Expanded automated test coverage
+- [ ] Deployment guides (Docker / systemd)
+- [ ] Optional PostgreSQL production profile
+- [ ] CI pipeline & quality gates
+
+---
+
+## 🤝 Contributing
+
+Contributions are very welcome! 💛
+
+1. **Fork** the repository
+2. Create a feature branch — `git checkout -b feat/amazing-feature`
+3. **Commit** your changes — `git commit -m "feat: add amazing feature"`
+4. **Push** the branch — `git push origin feat/amazing-feature`
+5. Open a **Pull Request**
+
+For significant changes, please open an issue first to discuss the direction.
+
+---
+
+## 📄 License
+
+Distributed under the **MIT License**. See [`LICENSE`](LICENSE) for details.
+
+---
+
+<div align="center">
+
+Built with ❤️ using [aiogram 3](https://docs.aiogram.dev/) and modern, async Python.
+
+**If you find this project useful, consider giving it a ⭐!**
+
+Maintained by [@Melfex](https://t.me/Melfex)
+
+</div>
