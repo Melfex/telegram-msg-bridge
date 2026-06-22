@@ -1,7 +1,9 @@
 from aiogram import Router
 
 from filter import IsSudo
-from .commands import router as commands_router
+from .command import command_router
+from .state import state_router
+from .callback import callback_router
 
 
 def setup_sudo_router() -> Router:
@@ -9,7 +11,10 @@ def setup_sudo_router() -> Router:
     router = Router()
 
     router.message.filter(IsSudo())
+    router.callback_query.filter(IsSudo())
 
-    router.include_router(commands_router)
+    router.include_router(command_router)
+    router.include_router(state_router)
+    router.include_router(callback_router)
 
     return router

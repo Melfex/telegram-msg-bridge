@@ -45,10 +45,10 @@ async def setup_bot_commands(
     await delete_bot_commands(bot)
     await bot.set_my_commands(
         commands=[
-            BotCommand(command="start", description=i18n.get("start-command")),
-            BotCommand(command="help", description=i18n.get("help-command")),
-            BotCommand(command="links", description=i18n.get("links-command")),
-
+            BotCommand(command="start", description=i18n.get("start-command-discription")),
+            BotCommand(command="language", description=i18n.get("language-command-discription")),
+            BotCommand(command="help", description=i18n.get("help-command-discription")),
+            BotCommand(command="links", description=i18n.get("links-command-discription")),
         ],
         scope=(
             BotCommandScopeChat(chat_id=chat_id)

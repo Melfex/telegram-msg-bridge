@@ -18,3 +18,10 @@ class UserReplyKeyboard:
 
         btn.adjust(2, 1, 1)
         return btn.as_markup(resize_keyboard=True)
+
+    @staticmethod
+    def cancel(i18n: I18nContext) -> ReplyKeyboardMarkup:
+        """Return a single-button keyboard for leaving the send flow"""
+        btn = ReplyKeyboardBuilder()
+        btn.button(text=i18n.get("cancel-btn"))
+        return btn.as_markup(resize_keyboard=True)

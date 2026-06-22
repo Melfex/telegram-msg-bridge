@@ -44,8 +44,7 @@ def setup_global_filter(dispatcher: Dispatcher) -> None:
     :return: None
     """
 
-    # filter update only for PRIVATE chat type
-    dispatcher.update.filter(F.chat.type == ChatType.PRIVATE)
+    dispatcher.message.filter(F.chat.type == ChatType.PRIVATE)
     logger.info("setup global filter/filters complete")
 
 
