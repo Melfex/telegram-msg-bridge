@@ -60,6 +60,6 @@ def setup_middleware(dispatcher: Dispatcher, db_connector: DatabaseConnector) ->
 
     dispatcher.update.outer_middleware(DatabaseMiddleware(connector=db_connector))
     dispatcher.update.outer_middleware(UserMiddleware())
-    dispatcher.message.middleware(TTLtMiddleware())
+    dispatcher.message.outer_middleware(TTLtMiddleware())
     i18n_middleware.setup(dispatcher)
     logger.info("setup middleware complete")

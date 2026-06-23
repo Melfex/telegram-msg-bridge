@@ -71,6 +71,9 @@ message-delivered-dialog = Tin nhắn của bạn đã được nhận và gửi
 you-are-blocked-dialog = <b>Người dùng thân mến ❕;</b>
                         Tài khoản của bạn đã bị chặn và bạn không thể sử dụng dịch vụ của bot nữa.
 
+dont-spam-dialog = <b>Chậm lại ‼️ </b>
+                    Bạn đã bị chặn trong <code>{ $block_duration }</code> giây vì spam.
+
 owner-reply-dialog = 💌•  Tin nhắn của bạn đã được <b>xem xét</b> và <b>trả lời</b>.
 
                     📝- Nội dung trả lời:

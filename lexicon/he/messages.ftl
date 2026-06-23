@@ -71,6 +71,9 @@ message-delivered-dialog = ההודעה שלך התקבלה ונשלחה ✅;
 you-are-blocked-dialog = <b>משתמש יקר ❕;</b>
                         חשבונך נחסם ולא תוכל עוד להשתמש בשירותי הבוט.
 
+dont-spam-dialog = <b>לאט יותר ‼️ </b>
+                    נחסמת למשך <code>{ $block_duration }</code> שניות בגלל ספאם.
+
 owner-reply-dialog = 💌•  ההודעה שלך <b>נבדקה</b> וקיבלה <b>תשובה</b>.
 
                     📝- טקסט התשובה:

@@ -71,6 +71,9 @@ message-delivered-dialog = 你的消息已收到并发送 ✅；
 you-are-blocked-dialog = <b>尊敬的用户 ❕；</b>
                         你的账号已被封禁，将无法再使用机器人的服务。
 
+dont-spam-dialog = <b>慢一点 ‼️ </b>
+                    由于刷屏，你已被封禁 <code>{ $block_duration }</code> 秒。
+
 owner-reply-dialog = 💌•  你的消息已被<b>查看</b>并<b>回复</b>。
 
                     📝- 回复内容：

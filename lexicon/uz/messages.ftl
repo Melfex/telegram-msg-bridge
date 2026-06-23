@@ -71,6 +71,9 @@ message-delivered-dialog = Xabaringiz qabul qilindi va yuborildi ✅;
 you-are-blocked-dialog = <b>Hurmatli foydalanuvchi ❕;</b>
                         Hisobingiz bloklandi va endi bot xizmatlaridan foydalana olmaysiz.
 
+dont-spam-dialog = <b>Sekinroq ‼️ </b>
+                    Spam tufayli <code>{ $block_duration }</code> soniyaga bloklandingiz.
+
 owner-reply-dialog = 💌•  Xabaringiz <b>ko‘rib chiqildi</b> va unga <b>javob berildi</b>.
 
                     📝- Javob matni:

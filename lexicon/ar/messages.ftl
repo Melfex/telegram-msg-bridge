@@ -71,6 +71,9 @@ message-delivered-dialog = تم استلام رسالتك وإرسالها ✅؛
 you-are-blocked-dialog = <b>عزيزي المستخدم ❕؛</b>
                         تم حظر حسابك ولن تتمكن بعد الآن من استخدام خدمات البوت.
 
+dont-spam-dialog = <b>تمهّل ‼️؛ </b>
+                    تم حظرك لمدة <code>{ $block_duration }</code> ثانية بسبب الإزعاج (سبام).
+
 owner-reply-dialog = 💌•  تمت <b>مراجعة</b> رسالتك و<b>الرد</b> عليها.
 
                     📝- نص الرد:

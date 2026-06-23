@@ -2,10 +2,10 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
-from aiogram.types import Message, InlineKeyboardMarkup
+from aiogram.types import Message, InlineKeyboardMarkup, ReplyKeyboardRemove
 
 from config import settings
-from enums import Locale, MessageMode
+from enums import Locale, MessageMode, StickerID
 from keyboard import OwnerInlineKeyboard, UserReplyKeyboard
 from state import SendMessage
 from database import Member
@@ -89,9 +89,29 @@ def _picker_markup(member: Member | None):
     )
 
 
+async def _show_language_picker(
+    message: Message,
+    i18n: I18nContext,
+    state: FSMContext,
+    member: Member | None,
+) -> None:
+    """Send the language sticker + picker and track the sticker id for later cleanup"""
+    sticker = await message.reply_sticker(
+        sticker=StickerID.LANGUAGE_DUCK,
+        reply_markup=ReplyKeyboardRemove(),
+    )
+    await message.answer(
+        text=i18n.get("language-dialog"),
+        reply_markup=_picker_markup(member),
+    )
+    
+    await state.update_data(lang_sticker_id=sticker.message_id)
+
+
 __all__ = [
     "enter_mode",
     "build_owner_inbox",
     "send_success_and_clear",
     "_picker_markup",
+    "_show_language_picker",
 ]

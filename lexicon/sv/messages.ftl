@@ -71,6 +71,9 @@ message-delivered-dialog = Ditt meddelande har tagits emot och skickats ✅;
 you-are-blocked-dialog = <b>Kära användare ❕;</b>
                         Ditt konto har blockerats och du kan inte längre använda botens tjänster.
 
+dont-spam-dialog = <b>Ta det lugnt ‼️ </b>
+                    Du har blockerats i <code>{ $block_duration }</code> sekunder på grund av spam.
+
 owner-reply-dialog = 💌•  Ditt meddelande har <b>granskats</b> och <b>besvarats</b>.
 
                     📝- Svarstext:

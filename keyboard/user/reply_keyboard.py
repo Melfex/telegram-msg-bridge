@@ -11,12 +11,13 @@ class UserReplyKeyboard:
         """Return the localized main menu keyboard"""
         btn = ReplyKeyboardBuilder()
 
+        btn.button(text=i18n.get("language-btn"))
         btn.button(text=i18n.get("message-btn"))
         btn.button(text=i18n.get("anonymous-message-btn"))
         btn.button(text=i18n.get("links-btn"))
         btn.button(text=i18n.get("help-btn")) 
 
-        btn.adjust(2, 1, 1)
+        btn.adjust(1, 2, 2)
         return btn.as_markup(resize_keyboard=True)
 
     @staticmethod

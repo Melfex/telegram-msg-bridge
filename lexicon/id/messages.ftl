@@ -71,6 +71,9 @@ message-delivered-dialog = Pesan Anda telah diterima dan dikirim ✅;
 you-are-blocked-dialog = <b>Pengguna yang terhormat ❕;</b>
                         Akun Anda telah diblokir dan Anda tidak dapat lagi menggunakan layanan bot.
 
+dont-spam-dialog = <b>Pelan-pelan ‼️ </b>
+                    Kamu diblokir selama <code>{ $block_duration }</code> detik karena spam.
+
 owner-reply-dialog = 💌•  Pesan Anda telah <b>ditinjau</b> dan <b>dibalas</b>.
 
                     📝- Teks balasan:

@@ -4,15 +4,16 @@ from datetime import datetime, timedelta
 from typing import Any, Awaitable, Callable, Final, TYPE_CHECKING
 
 from aiogram import BaseMiddleware
-from aiogram.types import Message
+from aiogram.types import Message, ReplyKeyboardRemove
 from cachebox import TTLCache
 
 from config import settings
-from enums import Throttle
+from enums import Throttle, StickerID
 
 if TYPE_CHECKING:
     from aiogram.types import TelegramObject
     from aiogram_i18n import I18nContext
+    from util import DeleteAfter
 
 
 class TTLtMiddleware(BaseMiddleware):
@@ -44,9 +45,11 @@ class TTLtMiddleware(BaseMiddleware):
         event: TelegramObject,
         data: dict[str, Any],
     ) -> Any:
-        user_id = event.from_user.id
+        if not isinstance(event, Message) or event.from_user is None:
+            return await handler(event, data)
 
-        if not isinstance(event, Message) or user_id == self.config.SUDO_ID:
+        user_id = event.from_user.id
+        if user_id == self.config.SUDO_ID:
             return await handler(event, data)
 
         if user_id in self._blocked:
@@ -59,10 +62,31 @@ class TTLtMiddleware(BaseMiddleware):
             self._blocked[user_id] = datetime.now() + timedelta(
                 seconds=Throttle.BLOCK_DURATION.value
             )
-            i18n: I18nContext | None = data.get("i18n")
-            await event.answer(
-                i18n.get("hello", user="spam")
-            )  # TODO: will be completed later, now just for fun XD
+            await self._notify_blocked(event, data)
             return None
 
         return await handler(event, data)
+
+    @staticmethod
+    async def _notify_blocked(event: Message, data: dict[str, Any]) -> None:
+        """Warn the spamming user and auto-clean the warning once the block expires"""
+        i18n: I18nContext | None = data.get("i18n")
+
+        sticker_msg = await event.answer_sticker(
+            sticker=StickerID.BLOCKED_DUCK,
+            reply_markup=ReplyKeyboardRemove(),
+        )
+        warn_msg = await event.answer(
+            text=i18n.get(
+                "dont-spam-dialog",
+                block_duration=Throttle.BLOCK_DURATION.value,
+            )
+        )
+
+        delete_after: DeleteAfter | None = data.get("delete_after")
+        if delete_after is not None:
+            delete_after(
+                event.chat.id,
+                [sticker_msg.message_id, warn_msg.message_id],
+                Throttle.BLOCK_DURATION.value,
+            )

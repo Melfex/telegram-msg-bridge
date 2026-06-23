@@ -71,6 +71,9 @@ message-delivered-dialog = Mesajın alındı ve iletildi ✅;
 you-are-blocked-dialog = <b>Değerli kullanıcı ❕;</b>
                         Hesabın engellendi ve artık botun hizmetlerini kullanamazsın.
 
+dont-spam-dialog = <b>Yavaş ol ‼️ </b>
+                    Spam nedeniyle <code>{ $block_duration }</code> saniye boyunca engellendin.
+
 owner-reply-dialog = 💌•  Mesajın <b>incelendi</b> ve <b>yanıtlandı</b>.
 
                     📝- Yanıt metni:

@@ -71,6 +71,9 @@ message-delivered-dialog = 메시지가 수신되어 전송되었습니다 ✅;
 you-are-blocked-dialog = <b>사용자님 ❕;</b>
                         계정이 차단되어 더 이상 봇 서비스를 이용할 수 없습니다.
 
+dont-spam-dialog = <b>천천히 하세요 ‼️ </b>
+                    스팸으로 인해 <code>{ $block_duration }</code>초 동안 차단되었습니다.
+
 owner-reply-dialog = 💌•  메시지가 <b>검토</b>되어 <b>답변</b>되었습니다.
 
                     📝- 답변 내용:

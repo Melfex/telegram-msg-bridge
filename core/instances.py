@@ -7,6 +7,8 @@ from aiogram.client.default import DefaultBotProperties
 from aiogram.enums import ParseMode
 from aiogram.fsm.storage.memory import MemoryStorage
 
+from util import MessageJanitor
+
 from .setup import setup_router, setup_global_filter, setup_middleware
 
 if TYPE_CHECKING:
@@ -42,6 +44,11 @@ def dispatcher_instance(db_connector: DatabaseConnector) -> Dispatcher:
         name="MAIN-ROUTER",
         storage=MemoryStorage(),
     )
+
+    janitor = MessageJanitor()
+    dispatcher["janitor"] = janitor
+    dispatcher["delete_after"] = janitor.schedule
+
     setup_router(dispatcher)
     setup_global_filter(dispatcher)
     setup_middleware(dispatcher, db_connector)

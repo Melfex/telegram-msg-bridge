@@ -9,6 +9,7 @@ from util import setup_bot_commands
 if TYPE_CHECKING:
     from aiogram import Bot, Dispatcher
     from aiogram_i18n import I18nMiddleware
+    from util import MessageJanitor
 
 logger = get_logger(__name__)
 
@@ -26,6 +27,9 @@ async def startup_polling(bot: Bot, dispatcher: Dispatcher):
         await setup_bot_commands(bot, context)
         logger.info("Bot commands setup")
 
+    janitor: MessageJanitor = dispatcher["janitor"]
+    janitor.start(bot)
+
     await bot.delete_webhook(drop_pending_updates=True)
 
 
@@ -38,8 +42,13 @@ async def shutdown_polling(bot: Bot, dispatcher: Dispatcher):
 
     :return: None
     """
+    janitor: MessageJanitor = dispatcher["janitor"]
+    await janitor.stop()
+
     await dispatcher.storage.close()
     await bot.session.close()
+
+    logger.info("shutdown polling complete")
 
 
 async def polling_run(bot: Bot, dispatcher: Dispatcher):
