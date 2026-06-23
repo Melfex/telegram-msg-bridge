@@ -2,12 +2,13 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING, Final
 
-from aiogram import Router
+from aiogram import Router, Bot
 from aiogram.types import CallbackQuery
 from structlog import get_logger
 
 from keyboard import LanguageCallback, UserInlineKeyboard, UserReplyKeyboard
 from enums import StickerID
+from util import setup_bot_commands
 
 if TYPE_CHECKING:
     from aiogram.fsm.context import FSMContext
@@ -60,5 +61,7 @@ async def select_language(
         old_message_ids.append(sticker_id)
 
     delete_after(callback.message.chat.id, old_message_ids, _PICKER_TTL)
-    
+
+    await setup_bot_commands(callback.bot, i18n, callback.from_user.id)
+
     await state.clear()

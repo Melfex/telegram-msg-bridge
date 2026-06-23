@@ -42,7 +42,7 @@ async def setup_bot_commands(
 
     :return: None
     """
-    await delete_bot_commands(bot)
+    await delete_bot_commands(bot, chat_id)
     await bot.set_my_commands(
         commands=[
             BotCommand(command="start", description=i18n.get("start-command-discription")),
