@@ -1,6 +1,7 @@
 from .locale import Locale, LANGUAGES
 from .logging import LogLevel
 from .status import Status
+from .bot_status import BotStatus
 from .throttle import Throttle
 from .message_effect import MessageEffect
 from .sticker_id import StickerID
@@ -10,6 +11,7 @@ from .inbox_action import InboxAction
 
 __all__ = [
     "Status",
+    "BotStatus",
     "Locale",
     "LANGUAGES",
     "Throttle",

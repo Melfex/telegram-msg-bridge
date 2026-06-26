@@ -74,6 +74,42 @@ you-are-blocked-dialog = <b>Değerli kullanıcı ❕;</b>
 dont-spam-dialog = <b>Yavaş ol ‼️ </b>
                     Spam nedeniyle <code>{ $block_duration }</code> saniye boyunca engellendin.
 
+<#-- Owner Panel -->
+panel-dialog = <b>Yönetim paneli 🛠</b>
+
+            Tekrar hoş geldin, sahip. Aşağıdan bir işlem seç 👇:
+
+toggle-bot-btn = 🔌| Botu aç/kapat
+block-user-btn = 🚫| Kullanıcıyı engelle
+unblock-user-btn = ✅| Engeli kaldır
+broadcast-btn = 📢| Toplu mesaj
+
+bot-enabled-dialog = Bot artık <b>çevrimiçi</b> ✅
+bot-disabled-dialog = Bot artık <b>çevrimdışı</b> ⛔️
+
+bot-status-dialog = <b>Bot durumu ⚙️</b>
+
+            Aşağıdan botun durumunu seçin; geçerli durum yeşille gösterilir 👇:
+bot-status-on-btn = 🟢 Çevrimiçi
+bot-status-off-btn = 🔴 Çevrimdışı
+back-panel-btn = 🔙 Panele dön
+
+ask-user-id-dialog = Kullanıcının <b>sayısal ID</b>'sini gönder 👇:
+invalid-id-dialog = ⚠️ Geçersiz ID. Lütfen geçerli bir sayısal ID gönder.
+
+broadcast-ask-dialog = Tüm kullanıcılara göndermek istediğin mesajı gönder 👇:
+broadcast-started-dialog = 📢 Toplu gönderim <b>{ $total }</b> kullanıcı için başladı…
+broadcast-report-dialog = ✅ Toplu gönderim tamamlandı.
+
+            • Gönderilen: <b>{ $sent }</b>
+            • Başarısız: <b>{ $failed }</b>
+            • Toplam: <b>{ $total }</b>
+
+<#-- Access Gate -->
+bot-off-dialog = <b>Bot şu anda çevrimdışı ⛔️</b>
+
+            Lütfen daha sonra tekrar dene.
+
 owner-reply-dialog = 💌•  Mesajın <b>incelendi</b> ve <b>yanıtlandı</b>.
 
                     📝- Yanıt metni:

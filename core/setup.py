@@ -15,6 +15,7 @@ from middleware import (
     UserMiddleware,
     LexiconManager,
     TTLtMiddleware,
+    GateMiddleware,
 )
 
 if TYPE_CHECKING:
@@ -31,8 +32,8 @@ def setup_router(dispatcher: Dispatcher) -> None:
     :param dispatcher: instance from root router
     :return: None"""
 
-    dispatcher.include_router(setup_user_router())
     dispatcher.include_router(setup_sudo_router())
+    dispatcher.include_router(setup_user_router())
     logger.info("setup routers complete")
 
 
@@ -60,6 +61,11 @@ def setup_middleware(dispatcher: Dispatcher, db_connector: DatabaseConnector) ->
 
     dispatcher.update.outer_middleware(DatabaseMiddleware(connector=db_connector))
     dispatcher.update.outer_middleware(UserMiddleware())
-    dispatcher.message.outer_middleware(TTLtMiddleware())
     i18n_middleware.setup(dispatcher)
+
+    gate = GateMiddleware()
+    dispatcher.message.outer_middleware(gate)
+    dispatcher.callback_query.outer_middleware(gate)
+
+    dispatcher.message.outer_middleware(TTLtMiddleware())
     logger.info("setup middleware complete")

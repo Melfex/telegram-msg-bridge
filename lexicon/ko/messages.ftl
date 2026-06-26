@@ -74,6 +74,42 @@ you-are-blocked-dialog = <b>사용자님 ❕;</b>
 dont-spam-dialog = <b>천천히 하세요 ‼️ </b>
                     스팸으로 인해 <code>{ $block_duration }</code>초 동안 차단되었습니다.
 
+<#-- Owner Panel -->
+panel-dialog = <b>관리자 패널 🛠</b>
+
+            다시 오신 것을 환영합니다, 주인님. 아래에서 작업을 선택하세요 👇:
+
+toggle-bot-btn = 🔌| 봇 켜기/끄기
+block-user-btn = 🚫| 사용자 차단
+unblock-user-btn = ✅| 차단 해제
+broadcast-btn = 📢| 전체 발송
+
+bot-enabled-dialog = 봇이 이제 <b>온라인</b> 상태입니다 ✅
+bot-disabled-dialog = 봇이 이제 <b>오프라인</b> 상태입니다 ⛔️
+
+bot-status-dialog = <b>봇 상태 ⚙️</b>
+
+            아래에서 봇 상태를 선택하세요. 현재 상태는 녹색으로 표시됩니다 👇:
+bot-status-on-btn = 🟢 온라인
+bot-status-off-btn = 🔴 오프라인
+back-panel-btn = 🔙 패널로 돌아가기
+
+ask-user-id-dialog = 대상 사용자의 <b>숫자 ID</b>를 보내세요 👇:
+invalid-id-dialog = ⚠️ 잘못된 ID입니다. 유효한 숫자 ID를 보내세요.
+
+broadcast-ask-dialog = 모든 사용자에게 발송할 메시지를 보내세요 👇:
+broadcast-started-dialog = 📢 <b>{ $total }</b>명의 사용자에게 발송을 시작했습니다…
+broadcast-report-dialog = ✅ 전체 발송 완료.
+
+            • 성공: <b>{ $sent }</b>
+            • 실패: <b>{ $failed }</b>
+            • 합계: <b>{ $total }</b>
+
+<#-- Access Gate -->
+bot-off-dialog = <b>봇이 현재 오프라인입니다 ⛔️</b>
+
+            나중에 다시 시도해 주세요.
+
 owner-reply-dialog = 💌•  메시지가 <b>검토</b>되어 <b>답변</b>되었습니다.
 
                     📝- 답변 내용:

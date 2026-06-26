@@ -74,6 +74,42 @@ you-are-blocked-dialog = <b>Người dùng thân mến ❕;</b>
 dont-spam-dialog = <b>Chậm lại ‼️ </b>
                     Bạn đã bị chặn trong <code>{ $block_duration }</code> giây vì spam.
 
+<#-- Owner Panel -->
+panel-dialog = <b>Bảng quản trị 🛠</b>
+
+            Chào mừng trở lại, chủ sở hữu. Chọn một hành động bên dưới 👇:
+
+toggle-bot-btn = 🔌| Bật/tắt bot
+block-user-btn = 🚫| Chặn người dùng
+unblock-user-btn = ✅| Bỏ chặn người dùng
+broadcast-btn = 📢| Phát sóng
+
+bot-enabled-dialog = Bot hiện đang <b>trực tuyến</b> ✅
+bot-disabled-dialog = Bot hiện đang <b>ngoại tuyến</b> ⛔️
+
+bot-status-dialog = <b>Trạng thái bot ⚙️</b>
+
+            Chọn trạng thái bot bên dưới; trạng thái hiện tại được tô màu xanh 👇:
+bot-status-on-btn = 🟢 Trực tuyến
+bot-status-off-btn = 🔴 Ngoại tuyến
+back-panel-btn = 🔙 Quay lại bảng điều khiển
+
+ask-user-id-dialog = Gửi <b>ID số</b> của người dùng 👇:
+invalid-id-dialog = ⚠️ ID không hợp lệ. Vui lòng gửi ID số hợp lệ.
+
+broadcast-ask-dialog = Gửi tin nhắn bạn muốn phát tới tất cả người dùng 👇:
+broadcast-started-dialog = 📢 Đã bắt đầu phát tới <b>{ $total }</b> người dùng…
+broadcast-report-dialog = ✅ Phát sóng hoàn tất.
+
+            • Đã gửi: <b>{ $sent }</b>
+            • Thất bại: <b>{ $failed }</b>
+            • Tổng: <b>{ $total }</b>
+
+<#-- Access Gate -->
+bot-off-dialog = <b>Bot hiện đang ngoại tuyến ⛔️</b>
+
+            Vui lòng thử lại sau.
+
 owner-reply-dialog = 💌•  Tin nhắn của bạn đã được <b>xem xét</b> và <b>trả lời</b>.
 
                     📝- Nội dung trả lời:

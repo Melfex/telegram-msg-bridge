@@ -6,8 +6,10 @@ from aiogram.filters import StateFilter
 from aiogram.types import Message
 from aiogram_i18n import LazyProxy
 
-from state import OwnerReply
-from .helper import send_reply_to_user
+from state import OwnerReply, AdminPanel
+from config import settings
+from keyboard import OwnerReplyKeyboard
+from .helper import send_reply_to_user, show_panel, parse_user_id, launch_broadcast
 
 
 if TYPE_CHECKING:
@@ -29,6 +31,7 @@ async def cancel_reply(message: Message, state: FSMContext, i18n: I18nContext) -
         chat_id=message.chat.id, message_ids=[reply_message_id, message.message_id]
     )
     await state.clear()
+    await show_panel(message, i18n)
 
 
 @state_router.message(StateFilter(OwnerReply.WAITING))
@@ -47,3 +50,63 @@ async def send_reply(message: Message, state: FSMContext, bot: Bot, i18n: I18nCo
     )
 
     await message.answer(text=i18n.get("reply-sent-dialog"))
+    await show_panel(message, i18n)
+
+
+@state_router.message(
+    StateFilter(AdminPanel.BLOCK_USER, AdminPanel.UNBLOCK_USER, AdminPanel.BROADCAST),
+    F.text == LazyProxy("cancel-btn"),
+)
+async def cancel_panel_flow(message: Message, state: FSMContext, i18n: I18nContext) -> None:
+    """Abort the current panel action and return to the panel"""
+    await state.clear()
+    await show_panel(message, i18n)
+
+
+@state_router.message(StateFilter(AdminPanel.BLOCK_USER))
+async def receive_block_id(message: Message, state: FSMContext, i18n: I18nContext, scope: TransactionScope) -> None:
+    """Block the user whose id the owner just sent"""
+    target_id = parse_user_id(message.text)
+    if target_id is None:
+        await message.answer(text=i18n.get("invalid-id-dialog"))
+        return
+
+    await scope.members.set_block(target_id, blocked=True)
+    await state.clear()
+    await message.answer(text=i18n.get("user-blocked-dialog"))
+    await show_panel(message, i18n)
+
+
+@state_router.message(StateFilter(AdminPanel.UNBLOCK_USER))
+async def receive_unblock_id(message: Message, state: FSMContext, i18n: I18nContext, scope: TransactionScope) -> None:
+    """Unblock the user whose id the owner just sent"""
+    target_id = parse_user_id(message.text)
+    if target_id is None:
+        await message.answer(text=i18n.get("invalid-id-dialog"))
+        return
+
+    await scope.members.set_block(target_id, blocked=False)
+    await state.clear()
+    await message.answer(text=i18n.get("user-unblocked-dialog"))
+    await show_panel(message, i18n)
+
+
+@state_router.message(StateFilter(AdminPanel.BROADCAST))
+async def receive_broadcast(message: Message, state: FSMContext, bot: Bot, i18n: I18nContext, scope: TransactionScope) -> None:
+    """Broadcast the owner's message to every unblocked member in the background"""
+    user_ids = await scope.members.all_unblocked_ids(exclude=settings.SUDO_ID)
+    await state.clear()
+
+    await message.answer(
+        text=i18n.get("broadcast-started-dialog", total=str(len(user_ids))),
+        reply_markup=OwnerReplyKeyboard.panel(i18n),
+    )
+
+    launch_broadcast(
+        bot,
+        i18n,
+        owner_id=settings.SUDO_ID,
+        from_chat_id=message.chat.id,
+        message_id=message.message_id,
+        user_ids=user_ids,
+    )

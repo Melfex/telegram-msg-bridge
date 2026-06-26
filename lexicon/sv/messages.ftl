@@ -74,6 +74,42 @@ you-are-blocked-dialog = <b>Kära användare ❕;</b>
 dont-spam-dialog = <b>Ta det lugnt ‼️ </b>
                     Du har blockerats i <code>{ $block_duration }</code> sekunder på grund av spam.
 
+<#-- Owner Panel -->
+panel-dialog = <b>Adminpanel 🛠</b>
+
+            Välkommen tillbaka, ägare. Välj en åtgärd nedan 👇:
+
+toggle-bot-btn = 🔌| Slå på/av boten
+block-user-btn = 🚫| Blockera användare
+unblock-user-btn = ✅| Avblockera användare
+broadcast-btn = 📢| Utskick
+
+bot-enabled-dialog = Boten är nu <b>online</b> ✅
+bot-disabled-dialog = Boten är nu <b>offline</b> ⛔️
+
+bot-status-dialog = <b>Botstatus ⚙️</b>
+
+            Välj botens status nedan; den aktuella är markerad i grönt 👇:
+bot-status-on-btn = 🟢 Online
+bot-status-off-btn = 🔴 Offline
+back-panel-btn = 🔙 Tillbaka till panelen
+
+ask-user-id-dialog = Skicka användarens <b>numeriska ID</b> 👇:
+invalid-id-dialog = ⚠️ Ogiltigt ID. Skicka ett giltigt numeriskt ID.
+
+broadcast-ask-dialog = Skicka meddelandet du vill skicka till alla användare 👇:
+broadcast-started-dialog = 📢 Utskick startat för <b>{ $total }</b> användare…
+broadcast-report-dialog = ✅ Utskick klart.
+
+            • Skickade: <b>{ $sent }</b>
+            • Misslyckade: <b>{ $failed }</b>
+            • Totalt: <b>{ $total }</b>
+
+<#-- Access Gate -->
+bot-off-dialog = <b>Boten är offline just nu ⛔️</b>
+
+            Försök igen senare.
+
 owner-reply-dialog = 💌•  Ditt meddelande har <b>granskats</b> och <b>besvarats</b>.
 
                     📝- Svarstext:

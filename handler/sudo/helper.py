@@ -1,14 +1,17 @@
 from __future__ import annotations
 
+import asyncio
+import re
 from datetime import datetime
-from typing import TYPE_CHECKING
+from typing import Final, TYPE_CHECKING
 
 from aiogram.types import CallbackQuery, Message
 from structlog import get_logger
 
-from keyboard import InboxCallback
+from keyboard import InboxCallback, OwnerReplyKeyboard
 from enums import Locale, Status
 from keyboard import OwnerInlineKeyboard
+from util import Broadcaster
 
 if TYPE_CHECKING:
     from aiogram import Bot
@@ -16,6 +19,16 @@ if TYPE_CHECKING:
     from database import TransactionScope
 
 logger = get_logger(__name__)
+
+_HTML_TAG_RE: Final[re.Pattern[str]] = re.compile(r"<[^>]+>")
+
+
+def strip_html(text: str) -> str:
+    """Remove HTML tags so a dialog can be shown inside a callback alert/toast"""
+    return _HTML_TAG_RE.sub("", text).strip()
+
+#while running in the background
+_broadcast_tasks: set[asyncio.Task] = set()
 
 
 async def set_block_status(
@@ -73,7 +86,62 @@ async def send_reply_to_user(
         await message.copy_to(chat_id=user_id, caption=text)
 
 
+async def show_panel(message: Message, i18n: I18nContext) -> None:
+    """Render the owner admin panel"""
+    await message.answer(
+        text=i18n.get("panel-dialog"),
+        reply_markup=OwnerReplyKeyboard.panel(i18n),
+    )
+
+
+def parse_user_id(text: str | None) -> int | None:
+    """Parse a numeric Telegram id from owner input, or ``None`` if invalid"""
+    if not text:
+        return None
+    cleaned = text.strip()
+    return int(cleaned) if cleaned.lstrip("-").isdigit() else None
+
+
+def launch_broadcast(
+    bot: Bot,
+    i18n: I18nContext,
+    *,
+    owner_id: int,
+    from_chat_id: int,
+    message_id: int,
+    user_ids: list[int],
+) -> None:
+    """Fire a broadcast in the background and report the result to the owner"""
+
+    async def _job() -> None:
+        try:
+            result = await Broadcaster(bot).run(
+                from_chat_id=from_chat_id,
+                message_id=message_id,
+                user_ids=user_ids,
+            )
+            await bot.send_message(
+                chat_id=owner_id,
+                text=i18n.get(
+                    "broadcast-report-dialog",
+                    sent=str(result.sent),
+                    failed=str(result.failed),
+                    total=str(result.total),
+                ),
+            )
+        except Exception as error:  # noqa: BLE001 - background safety net
+            logger.error("broadcast job failed", error=str(error))
+
+    task = asyncio.create_task(_job(), name="broadcast")
+    _broadcast_tasks.add(task)
+    task.add_done_callback(_broadcast_tasks.discard)
+
+
 __all__ = [
     "set_block_status",
     "send_reply_to_user",
+    "show_panel",
+    "parse_user_id",
+    "launch_broadcast",
+    "strip_html",
 ]

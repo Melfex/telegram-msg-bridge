@@ -74,6 +74,42 @@ you-are-blocked-dialog = <b>Dear user ❕;</b>
 dont-spam-dialog = <b>Slow down ‼️ </b>
                     You have been blocked for <code>{ $block_duration }</code> seconds due to spam.
 
+<#-- Owner Panel -->
+panel-dialog = <b>Admin panel 🛠</b>
+
+            Welcome back, owner. Choose an action below 👇:
+
+toggle-bot-btn = 🔌| Toggle bot
+block-user-btn = 🚫| Block user
+unblock-user-btn = ✅| Unblock user
+broadcast-btn = 📢| Broadcast
+
+bot-enabled-dialog = The bot is now <b>online</b> ✅
+bot-disabled-dialog = The bot is now <b>offline</b> ⛔️
+
+bot-status-dialog = <b>Bot status ⚙️</b>
+
+            Choose the bot's status below; the current one is highlighted in green 👇:
+bot-status-on-btn = 🟢 Online
+bot-status-off-btn = 🔴 Offline
+back-panel-btn = 🔙 Back to panel
+
+ask-user-id-dialog = Send the <b>numeric ID</b> of the target user 👇:
+invalid-id-dialog = ⚠️ Invalid ID. Please send a valid numeric user ID.
+
+broadcast-ask-dialog = Send the message you want to broadcast to all users 👇:
+broadcast-started-dialog = 📢 Broadcast started for <b>{ $total }</b> users…
+broadcast-report-dialog = ✅ Broadcast finished.
+
+            • Sent: <b>{ $sent }</b>
+            • Failed: <b>{ $failed }</b>
+            • Total: <b>{ $total }</b>
+
+<#-- Access Gate -->
+bot-off-dialog = <b>The bot is currently offline ⛔️</b>
+
+            Please try again later.
+
 owner-reply-dialog = 💌•  Your message has been <b>reviewed</b> and <b>answered</b>.
 
                     📝- Reply text:

@@ -2,7 +2,7 @@ from typing import Optional
 
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from .stores import MemberStore
+from .stores import MemberStore, BotConfigStore
 
 
 class TransactionScope:
@@ -19,17 +19,19 @@ class TransactionScope:
     def __init__(self, session: AsyncSession):
         self.session = session
         self.members: Optional[MemberStore] = None
+        self.config: Optional[BotConfigStore] = None
 
     async def __aenter__(self):
         """
         enter the asynchronous context
 
-        initializes the member store and returns the scope instance
+        initializes the stores and returns the scope instance
 
         :returns: The TransactionScope instance
         :rtype: TransactionScope
         """
         self.members = MemberStore(self.session)
+        self.config = BotConfigStore(self.session)
         return self
 
     async def __aexit__(self, exc_type, exc_val, exc_tb):

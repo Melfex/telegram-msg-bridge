@@ -1,6 +1,6 @@
 from aiogram.filters.callback_data import CallbackData
 
-from enums import InboxAction
+from enums import InboxAction, BotStatus
 
 
 class InboxCallback(CallbackData, prefix="ib"):
@@ -16,3 +16,9 @@ class InboxCallback(CallbackData, prefix="ib"):
     user_id: int
     message_id: int = 0
     reaction_idx: int = -1
+
+
+class BotStatusCallback(CallbackData, prefix="bs"):
+    """Callback payload emitted when the owner picks a global bot status"""
+
+    status: BotStatus

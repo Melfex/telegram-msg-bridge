@@ -74,6 +74,42 @@ you-are-blocked-dialog = <b>Hurmatli foydalanuvchi ❕;</b>
 dont-spam-dialog = <b>Sekinroq ‼️ </b>
                     Spam tufayli <code>{ $block_duration }</code> soniyaga bloklandingiz.
 
+<#-- Owner Panel -->
+panel-dialog = <b>Boshqaruv paneli 🛠</b>
+
+            Xush kelibsiz, egasi. Quyidan amalni tanlang 👇:
+
+toggle-bot-btn = 🔌| Botni yoqish/oʻchirish
+block-user-btn = 🚫| Foydalanuvchini bloklash
+unblock-user-btn = ✅| Blokdan chiqarish
+broadcast-btn = 📢| Ommaviy xabar
+
+bot-enabled-dialog = Bot endi <b>yoniq</b> ✅
+bot-disabled-dialog = Bot endi <b>oʻchiq</b> ⛔️
+
+bot-status-dialog = <b>Bot holati ⚙️</b>
+
+            Quyidan bot holatini tanlang; joriy holat yashil rangda belgilangan 👇:
+bot-status-on-btn = 🟢 Yoniq
+bot-status-off-btn = 🔴 Oʻchiq
+back-panel-btn = 🔙 Panelga qaytish
+
+ask-user-id-dialog = Foydalanuvchining <b>raqamli ID</b>sini yuboring 👇:
+invalid-id-dialog = ⚠️ Notoʻgʻri ID. Toʻgʻri raqamli ID yuboring.
+
+broadcast-ask-dialog = Barcha foydalanuvchilarga yubormoqchi boʻlgan xabaringizni yuboring 👇:
+broadcast-started-dialog = 📢 Ommaviy yuborish <b>{ $total }</b> foydalanuvchi uchun boshlandi…
+broadcast-report-dialog = ✅ Ommaviy yuborish tugadi.
+
+            • Yuborildi: <b>{ $sent }</b>
+            • Xatolik: <b>{ $failed }</b>
+            • Jami: <b>{ $total }</b>
+
+<#-- Access Gate -->
+bot-off-dialog = <b>Bot hozircha oʻchiq ⛔️</b>
+
+            Iltimos, keyinroq urinib koʻring.
+
 owner-reply-dialog = 💌•  Xabaringiz <b>ko‘rib chiqildi</b> va unga <b>javob berildi</b>.
 
                     📝- Javob matni:

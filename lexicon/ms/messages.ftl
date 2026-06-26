@@ -74,6 +74,42 @@ you-are-blocked-dialog = <b>Pengguna yang dihormati ❕;</b>
 dont-spam-dialog = <b>Perlahan sedikit ‼️ </b>
                     Anda disekat selama <code>{ $block_duration }</code> saat kerana spam.
 
+<#-- Owner Panel -->
+panel-dialog = <b>Panel pentadbir 🛠</b>
+
+            Selamat kembali, pemilik. Pilih tindakan di bawah 👇:
+
+toggle-bot-btn = 🔌| Hidup/matikan bot
+block-user-btn = 🚫| Sekat pengguna
+unblock-user-btn = ✅| Nyahsekat pengguna
+broadcast-btn = 📢| Siaran
+
+bot-enabled-dialog = Bot kini <b>dalam talian</b> ✅
+bot-disabled-dialog = Bot kini <b>luar talian</b> ⛔️
+
+bot-status-dialog = <b>Status bot ⚙️</b>
+
+            Pilih status bot di bawah; status semasa ditandakan dengan warna hijau 👇:
+bot-status-on-btn = 🟢 Dalam talian
+bot-status-off-btn = 🔴 Luar talian
+back-panel-btn = 🔙 Kembali ke panel
+
+ask-user-id-dialog = Hantar <b>ID nombor</b> pengguna 👇:
+invalid-id-dialog = ⚠️ ID tidak sah. Sila hantar ID nombor yang sah.
+
+broadcast-ask-dialog = Hantar mesej yang ingin disiarkan kepada semua pengguna 👇:
+broadcast-started-dialog = 📢 Siaran dimulakan untuk <b>{ $total }</b> pengguna…
+broadcast-report-dialog = ✅ Siaran selesai.
+
+            • Dihantar: <b>{ $sent }</b>
+            • Gagal: <b>{ $failed }</b>
+            • Jumlah: <b>{ $total }</b>
+
+<#-- Access Gate -->
+bot-off-dialog = <b>Bot kini luar talian ⛔️</b>
+
+            Sila cuba lagi kemudian.
+
 owner-reply-dialog = 💌•  Mesej anda telah <b>disemak</b> dan <b>dibalas</b>.
 
                     📝- Teks balasan:

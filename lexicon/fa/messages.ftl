@@ -74,6 +74,42 @@ you-are-blocked-dialog = <b>کاربر گرامی ❕؛</b>
 dont-spam-dialog = <b>آرام‌تر ‼️؛ </b>
                     شما به دلیل اسپم، به مدت <code>{ $block_duration }</code> ثانیه مسدود شده‌اید.
 
+<#-- Owner Panel -->
+panel-dialog = <b>پنل مدیریت 🛠</b>
+
+            خوش آمدید مالک عزیز. یکی از گزینه‌های زیر را انتخاب کنید 👇:
+
+toggle-bot-btn = 🔌| روشن/خاموش کردن بات
+block-user-btn = 🚫| بلاک کاربر
+unblock-user-btn = ✅| آزاد کردن کاربر
+broadcast-btn = 📢| پیام همگانی
+
+bot-enabled-dialog = بات هم‌اکنون <b>روشن</b> شد ✅
+bot-disabled-dialog = بات هم‌اکنون <b>خاموش</b> شد ⛔️
+
+bot-status-dialog = <b>وضعیت بات ⚙️</b>
+
+            وضعیت بات را از پایین انتخاب کنید؛ وضعیت فعلی با رنگ سبز مشخص شده است 👇:
+bot-status-on-btn = 🟢 روشن
+bot-status-off-btn = 🔴 خاموش
+back-panel-btn = 🔙 بازگشت به پنل
+
+ask-user-id-dialog = <b>آیدی عددی</b> کاربر موردنظر را ارسال کنید 👇:
+invalid-id-dialog = ⚠️ آیدی نامعتبر است. لطفاً یک آیدی عددی معتبر ارسال کنید.
+
+broadcast-ask-dialog = پیامی که می‌خواهید برای همه کاربران ارسال شود را بفرستید 👇:
+broadcast-started-dialog = 📢 ارسال همگانی برای <b>{ $total }</b> کاربر آغاز شد…
+broadcast-report-dialog = ✅ ارسال همگانی به پایان رسید.
+
+            • ارسال‌شده: <b>{ $sent }</b>
+            • ناموفق: <b>{ $failed }</b>
+            • کل: <b>{ $total }</b>
+
+<#-- Access Gate -->
+bot-off-dialog = <b>بات در حال حاضر خاموش است ⛔️</b>
+
+            لطفاً بعداً دوباره تلاش کنید.
+
 owner-reply-dialog = 💌•  پیام شما <b>برسی</b> و <b>پاسخ</b> داده شد.
                     
                     📝- متن پاسخ :

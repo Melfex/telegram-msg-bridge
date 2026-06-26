@@ -74,6 +74,42 @@ you-are-blocked-dialog = <b>Шановний користувачу ❕;</b>
 dont-spam-dialog = <b>Повільніше ‼️ </b>
                     Вас заблоковано на <code>{ $block_duration }</code> секунд за спам.
 
+<#-- Owner Panel -->
+panel-dialog = <b>Панель керування 🛠</b>
+
+            Ласкаво просимо, власнику. Оберіть дію нижче 👇:
+
+toggle-bot-btn = 🔌| Увімкнути/вимкнути бота
+block-user-btn = 🚫| Заблокувати
+unblock-user-btn = ✅| Розблокувати
+broadcast-btn = 📢| Розсилка
+
+bot-enabled-dialog = Бот тепер <b>увімкнено</b> ✅
+bot-disabled-dialog = Бот тепер <b>вимкнено</b> ⛔️
+
+bot-status-dialog = <b>Статус бота ⚙️</b>
+
+            Виберіть статус бота нижче; поточний позначено зеленим 👇:
+bot-status-on-btn = 🟢 Увімкнено
+bot-status-off-btn = 🔴 Вимкнено
+back-panel-btn = 🔙 Назад до панелі
+
+ask-user-id-dialog = Надішліть <b>числовий ID</b> користувача 👇:
+invalid-id-dialog = ⚠️ Невірний ID. Надішліть коректний числовий ID.
+
+broadcast-ask-dialog = Надішліть повідомлення для розсилки всім користувачам 👇:
+broadcast-started-dialog = 📢 Розсилку розпочато для <b>{ $total }</b> користувачів…
+broadcast-report-dialog = ✅ Розсилку завершено.
+
+            • Надіслано: <b>{ $sent }</b>
+            • Помилок: <b>{ $failed }</b>
+            • Усього: <b>{ $total }</b>
+
+<#-- Access Gate -->
+bot-off-dialog = <b>Бот наразі вимкнено ⛔️</b>
+
+            Будь ласка, спробуйте пізніше.
+
 owner-reply-dialog = 💌•  Ваше повідомлення <b>розглянуто</b> та <b>надано відповідь</b>.
 
                     📝- Текст відповіді:

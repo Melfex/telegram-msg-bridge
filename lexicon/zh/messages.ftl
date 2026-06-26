@@ -74,6 +74,42 @@ you-are-blocked-dialog = <b>尊敬的用户 ❕；</b>
 dont-spam-dialog = <b>慢一点 ‼️ </b>
                     由于刷屏，你已被封禁 <code>{ $block_duration }</code> 秒。
 
+<#-- Owner Panel -->
+panel-dialog = <b>管理面板 🛠</b>
+
+            欢迎回来，主人。请选择下面的操作 👇：
+
+toggle-bot-btn = 🔌| 开启/关闭机器人
+block-user-btn = 🚫| 封禁用户
+unblock-user-btn = ✅| 解封用户
+broadcast-btn = 📢| 群发
+
+bot-enabled-dialog = 机器人现已<b>开启</b> ✅
+bot-disabled-dialog = 机器人现已<b>关闭</b> ⛔️
+
+bot-status-dialog = <b>机器人状态 ⚙️</b>
+
+            请在下方选择机器人状态；当前状态以绿色显示 👇:
+bot-status-on-btn = 🟢 开启
+bot-status-off-btn = 🔴 关闭
+back-panel-btn = 🔙 返回面板
+
+ask-user-id-dialog = 请发送目标用户的<b>数字 ID</b> 👇：
+invalid-id-dialog = ⚠️ 无效的 ID。请发送有效的数字用户 ID。
+
+broadcast-ask-dialog = 请发送你想群发给所有用户的消息 👇：
+broadcast-started-dialog = 📢 已开始向 <b>{ $total }</b> 位用户群发…
+broadcast-report-dialog = ✅ 群发完成。
+
+            • 成功：<b>{ $sent }</b>
+            • 失败：<b>{ $failed }</b>
+            • 总计：<b>{ $total }</b>
+
+<#-- Access Gate -->
+bot-off-dialog = <b>机器人当前已关闭 ⛔️</b>
+
+            请稍后再试。
+
 owner-reply-dialog = 💌•  你的消息已被<b>查看</b>并<b>回复</b>。
 
                     📝- 回复内容：

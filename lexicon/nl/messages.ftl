@@ -74,6 +74,42 @@ you-are-blocked-dialog = <b>Beste gebruiker ❕;</b>
 dont-spam-dialog = <b>Rustig aan ‼️ </b>
                     Je bent voor <code>{ $block_duration }</code> seconden geblokkeerd wegens spam.
 
+<#-- Owner Panel -->
+panel-dialog = <b>Beheerpaneel 🛠</b>
+
+            Welkom terug, eigenaar. Kies hieronder een actie 👇:
+
+toggle-bot-btn = 🔌| Bot aan/uit
+block-user-btn = 🚫| Gebruiker blokkeren
+unblock-user-btn = ✅| Gebruiker deblokkeren
+broadcast-btn = 📢| Uitzending
+
+bot-enabled-dialog = De bot is nu <b>online</b> ✅
+bot-disabled-dialog = De bot is nu <b>offline</b> ⛔️
+
+bot-status-dialog = <b>Botstatus ⚙️</b>
+
+            Kies hieronder de status van de bot; de huidige is groen gemarkeerd 👇:
+bot-status-on-btn = 🟢 Online
+bot-status-off-btn = 🔴 Offline
+back-panel-btn = 🔙 Terug naar paneel
+
+ask-user-id-dialog = Stuur de <b>numerieke ID</b> van de gebruiker 👇:
+invalid-id-dialog = ⚠️ Ongeldige ID. Stuur een geldige numerieke ID.
+
+broadcast-ask-dialog = Stuur het bericht dat je naar alle gebruikers wilt uitzenden 👇:
+broadcast-started-dialog = 📢 Uitzending gestart voor <b>{ $total }</b> gebruikers…
+broadcast-report-dialog = ✅ Uitzending voltooid.
+
+            • Verzonden: <b>{ $sent }</b>
+            • Mislukt: <b>{ $failed }</b>
+            • Totaal: <b>{ $total }</b>
+
+<#-- Access Gate -->
+bot-off-dialog = <b>De bot is momenteel offline ⛔️</b>
+
+            Probeer het later opnieuw.
+
 owner-reply-dialog = 💌•  Je bericht is <b>beoordeeld</b> en <b>beantwoord</b>.
 
                     📝- Antwoordtekst:

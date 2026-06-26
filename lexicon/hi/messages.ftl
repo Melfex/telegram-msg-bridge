@@ -74,6 +74,42 @@ you-are-blocked-dialog = <b>प्रिय उपयोगकर्ता ❕;<
 dont-spam-dialog = <b>ज़रा धीरे ‼️ </b>
                     स्पैम के कारण आपको <code>{ $block_duration }</code> सेकंड के लिए ब्लॉक कर दिया गया है।
 
+<#-- Owner Panel -->
+panel-dialog = <b>एडमिन पैनल 🛠</b>
+
+            वापसी पर स्वागत है, मालिक। नीचे एक क्रिया चुनें 👇:
+
+toggle-bot-btn = 🔌| बॉट चालू/बंद करें
+block-user-btn = 🚫| उपयोगकर्ता ब्लॉक करें
+unblock-user-btn = ✅| अनब्लॉक करें
+broadcast-btn = 📢| प्रसारण
+
+bot-enabled-dialog = बॉट अब <b>ऑनलाइन</b> है ✅
+bot-disabled-dialog = बॉट अब <b>ऑफ़लाइन</b> है ⛔️
+
+bot-status-dialog = <b>बॉट स्थिति ⚙️</b>
+
+            नीचे बॉट की स्थिति चुनें; वर्तमान स्थिति हरे रंग में दिखाई गई है 👇:
+bot-status-on-btn = 🟢 चालू
+bot-status-off-btn = 🔴 बंद
+back-panel-btn = 🔙 पैनल पर वापस
+
+ask-user-id-dialog = उपयोगकर्ता का <b>संख्यात्मक ID</b> भेजें 👇:
+invalid-id-dialog = ⚠️ अमान्य ID। कृपया मान्य संख्यात्मक ID भेजें।
+
+broadcast-ask-dialog = वह संदेश भेजें जिसे आप सभी उपयोगकर्ताओं को प्रसारित करना चाहते हैं 👇:
+broadcast-started-dialog = 📢 <b>{ $total }</b> उपयोगकर्ताओं के लिए प्रसारण शुरू हुआ…
+broadcast-report-dialog = ✅ प्रसारण पूर्ण हुआ।
+
+            • भेजे गए: <b>{ $sent }</b>
+            • विफल: <b>{ $failed }</b>
+            • कुल: <b>{ $total }</b>
+
+<#-- Access Gate -->
+bot-off-dialog = <b>बॉट इस समय ऑफ़लाइन है ⛔️</b>
+
+            कृपया बाद में पुनः प्रयास करें।
+
 owner-reply-dialog = 💌•  आपके संदेश की <b>समीक्षा</b> की गई और <b>उत्तर</b> दिया गया।
 
                     📝- उत्तर का पाठ:

@@ -2,10 +2,12 @@ from .db import DatabaseMiddleware
 from .i18n import LexiconManager
 from .throttling import TTLtMiddleware
 from .user import UserMiddleware
+from .gate import GateMiddleware
 
 __all__ = [
     "DatabaseMiddleware",
     "LexiconManager",
     "UserMiddleware",
     "TTLtMiddleware",
+    "GateMiddleware",
 ]

@@ -74,6 +74,42 @@ you-are-blocked-dialog = <b>משתמש יקר ❕;</b>
 dont-spam-dialog = <b>לאט יותר ‼️ </b>
                     נחסמת למשך <code>{ $block_duration }</code> שניות בגלל ספאם.
 
+<#-- Owner Panel -->
+panel-dialog = <b>פאנל ניהול 🛠</b>
+
+            ברוך שובך, בעלים. בחר פעולה מהאפשרויות שלהלן 👇:
+
+toggle-bot-btn = 🔌| הפעלה/כיבוי הבוט
+block-user-btn = 🚫| חסום משתמש
+unblock-user-btn = ✅| בטל חסימה
+broadcast-btn = 📢| שידור
+
+bot-enabled-dialog = הבוט כעת <b>מקוון</b> ✅
+bot-disabled-dialog = הבוט כעת <b>כבוי</b> ⛔️
+
+bot-status-dialog = <b>סטטוס הבוט ⚙️</b>
+
+            בחר את סטטוס הבוט למטה; הנוכחי מסומן בירוק 👇:
+bot-status-on-btn = 🟢 פעיל
+bot-status-off-btn = 🔴 כבוי
+back-panel-btn = 🔙 חזרה לפאנל
+
+ask-user-id-dialog = שלח את <b>המזהה המספרי</b> של המשתמש 👇:
+invalid-id-dialog = ⚠️ מזהה לא תקין. שלח מזהה מספרי תקין.
+
+broadcast-ask-dialog = שלח את ההודעה שברצונך לשדר לכל המשתמשים 👇:
+broadcast-started-dialog = 📢 השידור החל עבור <b>{ $total }</b> משתמשים…
+broadcast-report-dialog = ✅ השידור הסתיים.
+
+            • נשלחו: <b>{ $sent }</b>
+            • נכשלו: <b>{ $failed }</b>
+            • סה״כ: <b>{ $total }</b>
+
+<#-- Access Gate -->
+bot-off-dialog = <b>הבוט כבוי כרגע ⛔️</b>
+
+            נסה שוב מאוחר יותר.
+
 owner-reply-dialog = 💌•  ההודעה שלך <b>נבדקה</b> וקיבלה <b>תשובה</b>.
 
                     📝- טקסט התשובה:

@@ -4,7 +4,8 @@ from typing import TYPE_CHECKING
 
 from structlog import get_logger
 
-from util import setup_bot_commands
+from config import settings
+from util import setup_bot_commands, setup_owner_commands
 
 if TYPE_CHECKING:
     from aiogram import Bot, Dispatcher
@@ -25,6 +26,7 @@ async def startup_polling(bot: Bot, dispatcher: Dispatcher):
     i18n: I18nMiddleware = dispatcher["i18n_middleware"]
     with i18n.use_context() as context:
         await setup_bot_commands(bot, context)
+        await setup_owner_commands(bot, context, settings.SUDO_ID)
         logger.info("Bot commands setup")
 
     janitor: MessageJanitor = dispatcher["janitor"]

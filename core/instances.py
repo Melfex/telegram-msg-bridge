@@ -7,7 +7,7 @@ from aiogram.client.default import DefaultBotProperties
 from aiogram.enums import ParseMode
 from aiogram.fsm.storage.memory import MemoryStorage
 
-from util import MessageJanitor
+from util import MessageJanitor, BotStateService
 
 from .setup import setup_router, setup_global_filter, setup_middleware
 
@@ -48,6 +48,8 @@ def dispatcher_instance(db_connector: DatabaseConnector) -> Dispatcher:
     janitor = MessageJanitor()
     dispatcher["janitor"] = janitor
     dispatcher["delete_after"] = janitor.schedule
+
+    dispatcher["bot_state"] = BotStateService()
 
     setup_router(dispatcher)
     setup_global_filter(dispatcher)

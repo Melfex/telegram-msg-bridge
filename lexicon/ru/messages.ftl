@@ -74,6 +74,42 @@ you-are-blocked-dialog = <b>Уважаемый пользователь ❕;</b>
 dont-spam-dialog = <b>Помедленнее ‼️ </b>
                     Вы заблокированы на <code>{ $block_duration }</code> секунд за спам.
 
+<#-- Owner Panel -->
+panel-dialog = <b>Панель управления 🛠</b>
+
+            С возвращением, владелец. Выберите действие ниже 👇:
+
+toggle-bot-btn = 🔌| Включить/выключить бота
+block-user-btn = 🚫| Заблокировать
+unblock-user-btn = ✅| Разблокировать
+broadcast-btn = 📢| Рассылка
+
+bot-enabled-dialog = Бот теперь <b>включён</b> ✅
+bot-disabled-dialog = Бот теперь <b>выключен</b> ⛔️
+
+bot-status-dialog = <b>Статус бота ⚙️</b>
+
+            Выберите статус бота ниже; текущий отмечен зелёным 👇:
+bot-status-on-btn = 🟢 Включён
+bot-status-off-btn = 🔴 Выключен
+back-panel-btn = 🔙 Назад к панели
+
+ask-user-id-dialog = Отправьте <b>числовой ID</b> пользователя 👇:
+invalid-id-dialog = ⚠️ Неверный ID. Отправьте корректный числовой ID.
+
+broadcast-ask-dialog = Отправьте сообщение для рассылки всем пользователям 👇:
+broadcast-started-dialog = 📢 Рассылка запущена для <b>{ $total }</b> пользователей…
+broadcast-report-dialog = ✅ Рассылка завершена.
+
+            • Отправлено: <b>{ $sent }</b>
+            • Ошибок: <b>{ $failed }</b>
+            • Всего: <b>{ $total }</b>
+
+<#-- Access Gate -->
+bot-off-dialog = <b>Бот сейчас выключен ⛔️</b>
+
+            Пожалуйста, попробуйте позже.
+
 owner-reply-dialog = 💌•  Ваше сообщение <b>рассмотрено</b> и на него <b>дан ответ</b>.
 
                     📝- Текст ответа:

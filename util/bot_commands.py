@@ -56,3 +56,25 @@ async def setup_bot_commands(
             else BotCommandScopeDefault()
         ),
     )
+
+
+async def setup_owner_commands(bot: Bot, i18n: I18nContext, chat_id: int) -> None:
+    """
+    set the reduced command list shown only to the owner
+
+    The owner is limited to ``/start`` and ``/language``; this is scoped to the
+    owner's chat so it overrides the default command list for that chat only.
+
+    :param bot: Bot instance
+    :param i18n: i18n context
+    :param chat_id: owner chat id
+
+    :return: None
+    """
+    await bot.set_my_commands(
+        commands=[
+            BotCommand(command="start", description=i18n.get("start-command-discription")),
+            BotCommand(command="language", description=i18n.get("language-command-discription")),
+        ],
+        scope=BotCommandScopeChat(chat_id=chat_id),
+    )

@@ -4,13 +4,14 @@ from .user.inline_callback import LanguageCallback
 
 from .sudo.reply_markup import OwnerReplyKeyboard
 from .sudo.inline_keyboard import OwnerInlineKeyboard
-from .sudo.inline_callback import InboxCallback
+from .sudo.inline_callback import InboxCallback, BotStatusCallback
 
 __all__ = [
     "UserReplyKeyboard",
     "UserInlineKeyboard",
     "LanguageCallback",
     "InboxCallback",
+    "BotStatusCallback",
     "OwnerInlineKeyboard",
     "OwnerReplyKeyboard",
 ]

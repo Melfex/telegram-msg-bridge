@@ -4,8 +4,7 @@ from typing import TYPE_CHECKING, Any, Awaitable, Callable
 
 from aiogram import BaseMiddleware
 
-from config import settings
-from enums import Locale, Status
+from enums import Locale
 
 if TYPE_CHECKING:
     from aiogram.types import TelegramObject, User
@@ -58,9 +57,6 @@ class UserMiddleware(BaseMiddleware):
             lang = _normalize_locale(tg_user.language_code)
             member = await store.add(tg_user.id, lang)
             await scope.persist()
-
-        if member.status == Status.BLOCKED and tg_user.id != settings.SUDO_ID:
-            return None
 
         data["member"] = member
         return await handler(event, data)

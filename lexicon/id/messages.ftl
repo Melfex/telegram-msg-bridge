@@ -74,6 +74,42 @@ you-are-blocked-dialog = <b>Pengguna yang terhormat ❕;</b>
 dont-spam-dialog = <b>Pelan-pelan ‼️ </b>
                     Kamu diblokir selama <code>{ $block_duration }</code> detik karena spam.
 
+<#-- Owner Panel -->
+panel-dialog = <b>Panel admin 🛠</b>
+
+            Selamat datang kembali, pemilik. Pilih tindakan di bawah 👇:
+
+toggle-bot-btn = 🔌| Nyalakan/matikan bot
+block-user-btn = 🚫| Blokir pengguna
+unblock-user-btn = ✅| Buka blokir pengguna
+broadcast-btn = 📢| Siaran
+
+bot-enabled-dialog = Bot sekarang <b>aktif</b> ✅
+bot-disabled-dialog = Bot sekarang <b>nonaktif</b> ⛔️
+
+bot-status-dialog = <b>Status bot ⚙️</b>
+
+            Pilih status bot di bawah; status saat ini ditandai dengan warna hijau 👇:
+bot-status-on-btn = 🟢 Aktif
+bot-status-off-btn = 🔴 Nonaktif
+back-panel-btn = 🔙 Kembali ke panel
+
+ask-user-id-dialog = Kirim <b>ID numerik</b> pengguna 👇:
+invalid-id-dialog = ⚠️ ID tidak valid. Kirim ID numerik yang benar.
+
+broadcast-ask-dialog = Kirim pesan yang ingin disiarkan ke semua pengguna 👇:
+broadcast-started-dialog = 📢 Siaran dimulai untuk <b>{ $total }</b> pengguna…
+broadcast-report-dialog = ✅ Siaran selesai.
+
+            • Terkirim: <b>{ $sent }</b>
+            • Gagal: <b>{ $failed }</b>
+            • Total: <b>{ $total }</b>
+
+<#-- Access Gate -->
+bot-off-dialog = <b>Bot sedang nonaktif ⛔️</b>
+
+            Silakan coba lagi nanti.
+
 owner-reply-dialog = 💌•  Pesan Anda telah <b>ditinjau</b> dan <b>dibalas</b>.
 
                     📝- Teks balasan:

@@ -74,6 +74,42 @@ you-are-blocked-dialog = <b>عزيزي المستخدم ❕؛</b>
 dont-spam-dialog = <b>تمهّل ‼️؛ </b>
                     تم حظرك لمدة <code>{ $block_duration }</code> ثانية بسبب الإزعاج (سبام).
 
+<#-- Owner Panel -->
+panel-dialog = <b>لوحة الإدارة 🛠</b>
+
+            مرحبًا بعودتك أيها المالك. اختر إجراءً من الأسفل 👇:
+
+toggle-bot-btn = 🔌| تشغيل/إيقاف البوت
+block-user-btn = 🚫| حظر المستخدم
+unblock-user-btn = ✅| إلغاء الحظر
+broadcast-btn = 📢| إرسال جماعي
+
+bot-enabled-dialog = البوت الآن <b>قيد التشغيل</b> ✅
+bot-disabled-dialog = البوت الآن <b>متوقف</b> ⛔️
+
+bot-status-dialog = <b>حالة البوت ⚙️</b>
+
+            اختر حالة البوت أدناه؛ الحالة الحالية مميّزة باللون الأخضر 👇:
+bot-status-on-btn = 🟢 يعمل
+bot-status-off-btn = 🔴 متوقف
+back-panel-btn = 🔙 العودة إلى لوحة التحكم
+
+ask-user-id-dialog = أرسل <b>المعرّف الرقمي</b> للمستخدم المطلوب 👇:
+invalid-id-dialog = ⚠️ معرّف غير صالح. أرسل معرّفًا رقميًا صحيحًا.
+
+broadcast-ask-dialog = أرسل الرسالة التي تريد بثّها لجميع المستخدمين 👇:
+broadcast-started-dialog = 📢 بدأ الإرسال الجماعي لـ <b>{ $total }</b> مستخدم…
+broadcast-report-dialog = ✅ انتهى الإرسال الجماعي.
+
+            • أُرسلت: <b>{ $sent }</b>
+            • فشلت: <b>{ $failed }</b>
+            • الإجمالي: <b>{ $total }</b>
+
+<#-- Access Gate -->
+bot-off-dialog = <b>البوت متوقف حاليًا ⛔️</b>
+
+            يُرجى المحاولة لاحقًا.
+
 owner-reply-dialog = 💌•  تمت <b>مراجعة</b> رسالتك و<b>الرد</b> عليها.
 
                     📝- نص الرد:
