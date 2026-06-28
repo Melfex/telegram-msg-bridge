@@ -95,11 +95,17 @@ async def show_panel(message: Message, i18n: I18nContext) -> None:
 
 
 def parse_user_id(text: str | None) -> int | None:
-    """Parse a numeric Telegram id from owner input, or ``None`` if invalid"""
+    """Parse a numeric Telegram id from owner input, or ``None`` if invalid
+
+    Accepts an optional single leading ``-`` (Telegram chat ids can be
+    negative); anything else (extra signs, separators, non-digits) is rejected
+    without raising.
+    """
     if not text:
         return None
     cleaned = text.strip()
-    return int(cleaned) if cleaned.lstrip("-").isdigit() else None
+    digits = cleaned[1:] if cleaned.startswith("-") else cleaned
+    return int(cleaned) if digits.isdigit() else None
 
 
 def launch_broadcast(
